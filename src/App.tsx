@@ -8,10 +8,30 @@ const slides: SlideDefinition[] = [
   {
     id: 'intro',
     content: (
-      <>
-        <h1 className="hero">Прагматичний вайб клодінг</h1>
-        <p>Ярослав Єрмілов, Principal Software Engineer @ Superhuman/Grammarly</p>
-      </>
+      <div className="bio-slide">
+        <div className="bio-slide-content">
+          <h1>Прагматичний вайб клодінг</h1>
+          <h3>Ярослав Єрмілов, Principal Software Engineer @ Superhuman/Grammarly</h3>
+          <p className="text-dim">8 років в греммерлі / суперхьюмані:</p>
+          <ul>
+            <li>працював на бекенді</li>
+            <li>лідив продуктові фічі</li>
+            <li>техлідив платформену організацію</li>
+            <li>зараз займаюся АІ-дев агентами</li>
+          </ul>
+          <p>
+            пишу постійно в{' '}
+            <a href="https://www.linkedin.com/in/yarik-yermilov/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </p>
+        </div>
+        <img
+          src="/yarik-badges.jpg"
+          alt="Grammarly badges"
+          className="bio-slide-image"
+        />
+      </div>
     ),
     notes: 'Welcome everyone to this presentation about Claude Code!',
   },

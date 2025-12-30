@@ -9,7 +9,9 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
       "Skill(frontend-design:frontend-design)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
