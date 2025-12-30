@@ -7,12 +7,12 @@
       "dependencies": {
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "reveal.js": "^5.1.0",
+        "react-syntax-highlighter": "^16.1.0",
       },
       "devDependencies": {
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",
-        "@types/reveal.js": "^5.0.3",
+        "@types/react-syntax-highlighter": "^15.5.13",
         "@vitejs/plugin-react": "^4.3.3",
         "gh-pages": "^6.2.0",
         "typescript": "~5.6.2",
@@ -52,6 +52,8 @@
     "@babel/plugin-transform-react-jsx-self": ["@babel/plugin-transform-react-jsx-self@7.27.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.27.1.tgz", { "dependencies": { "@babel/helper-plugin-utils": "^7.27.1" }, "peerDependencies": { "@babel/core": "^7.0.0-0" } }, "sha512-6UzkCs+ejGdZ5mFFC/OCUrv028ab2fp1znZmCZjAOBKiBK2jXD1O+BPSfX8X2qjJ75fZBMSnQn3Rq2mrBJK2mw=="],
 
     "@babel/plugin-transform-react-jsx-source": ["@babel/plugin-transform-react-jsx-source@7.27.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.27.1.tgz", { "dependencies": { "@babel/helper-plugin-utils": "^7.27.1" }, "peerDependencies": { "@babel/core": "^7.0.0-0" } }, "sha512-zbwoTsBruTeKB9hSq73ha66iFeJHuaFkUbwvqElnygoNbj/jHRsSeokowZFN3CZ64IvEqcmmkVe89OPXc7ldAw=="],
+
+    "@babel/runtime": ["@babel/runtime@7.28.4", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@babel/runtime/-/runtime-7.28.4.tgz", {}, "sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ=="],
 
     "@babel/template": ["@babel/template@7.27.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@babel/template/-/template-7.27.2.tgz", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/parser": "^7.27.2", "@babel/types": "^7.27.1" } }, "sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw=="],
 
@@ -177,13 +179,19 @@
 
     "@types/estree": ["@types/estree@1.0.8", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/estree/-/estree-1.0.8.tgz", {}, "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="],
 
+    "@types/hast": ["@types/hast@3.0.4", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/hast/-/hast-3.0.4.tgz", { "dependencies": { "@types/unist": "*" } }, "sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ=="],
+
+    "@types/prismjs": ["@types/prismjs@1.26.5", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/prismjs/-/prismjs-1.26.5.tgz", {}, "sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ=="],
+
     "@types/prop-types": ["@types/prop-types@15.7.15", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/prop-types/-/prop-types-15.7.15.tgz", {}, "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="],
 
     "@types/react": ["@types/react@18.3.27", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/react/-/react-18.3.27.tgz", { "dependencies": { "@types/prop-types": "*", "csstype": "^3.2.2" } }, "sha512-cisd7gxkzjBKU2GgdYrTdtQx1SORymWyaAFhaxQPK9bYO9ot3Y5OikQRvY0VYQtvwjeQnizCINJAenh/V7MK2w=="],
 
     "@types/react-dom": ["@types/react-dom@18.3.7", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/react-dom/-/react-dom-18.3.7.tgz", { "peerDependencies": { "@types/react": "^18.0.0" } }, "sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ=="],
 
-    "@types/reveal.js": ["@types/reveal.js@5.2.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/reveal.js/-/reveal.js-5.2.2.tgz", {}, "sha512-U6wdIeFZPR77zjaZCrFNPzKjjfdFr4Dj0WUAZ+UYgXGjwqYCnjpCngeS0hb+28FLL0QzE9jXBikvB7xxAQi5sg=="],
+    "@types/react-syntax-highlighter": ["@types/react-syntax-highlighter@15.5.13", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/react-syntax-highlighter/-/react-syntax-highlighter-15.5.13.tgz", { "dependencies": { "@types/react": "*" } }, "sha512-uLGJ87j6Sz8UaBAooU0T6lWJ0dBmjZgN1PZTrj05TNql2/XpC6+4HhMT5syIdFUUt+FASfCeLLv4kBygNU+8qA=="],
+
+    "@types/unist": ["@types/unist@3.0.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/unist/-/unist-3.0.3.tgz", {}, "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q=="],
 
     "@vitejs/plugin-react": ["@vitejs/plugin-react@4.7.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@vitejs/plugin-react/-/plugin-react-4.7.0.tgz", { "dependencies": { "@babel/core": "^7.28.0", "@babel/plugin-transform-react-jsx-self": "^7.27.1", "@babel/plugin-transform-react-jsx-source": "^7.27.1", "@rolldown/pluginutils": "1.0.0-beta.27", "@types/babel__core": "^7.20.5", "react-refresh": "^0.17.0" }, "peerDependencies": { "vite": "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0" } }, "sha512-gUu9hwfWvvEDBBmgtAowQCojwZmJ5mcLn3aufeCsitijs3+f2NsrPtlAWIR6OPiqljl96GVCUbLe0HyqIpVaoA=="],
 
@@ -199,6 +207,14 @@
 
     "caniuse-lite": ["caniuse-lite@1.0.30001761", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/caniuse-lite/-/caniuse-lite-1.0.30001761.tgz", {}, "sha512-JF9ptu1vP2coz98+5051jZ4PwQgd2ni8A+gYSN7EA7dPKIMf0pDlSUxhdmVOaV3/fYK5uWBkgSXJaRLr4+3A6g=="],
 
+    "character-entities": ["character-entities@2.0.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/character-entities/-/character-entities-2.0.2.tgz", {}, "sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ=="],
+
+    "character-entities-legacy": ["character-entities-legacy@3.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/character-entities-legacy/-/character-entities-legacy-3.0.0.tgz", {}, "sha512-RpPp0asT/6ufRm//AJVwpViZbGM/MkjQFxJccQRHmISF/22NBtsHqAWmL+/pmkPWoIUJdWyeVleTl1wydHATVQ=="],
+
+    "character-reference-invalid": ["character-reference-invalid@2.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/character-reference-invalid/-/character-reference-invalid-2.0.1.tgz", {}, "sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw=="],
+
+    "comma-separated-tokens": ["comma-separated-tokens@2.0.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz", {}, "sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg=="],
+
     "commander": ["commander@13.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/commander/-/commander-13.1.0.tgz", {}, "sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw=="],
 
     "commondir": ["commondir@1.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/commondir/-/commondir-1.0.1.tgz", {}, "sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg=="],
@@ -208,6 +224,8 @@
     "csstype": ["csstype@3.2.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/csstype/-/csstype-3.2.3.tgz", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
 
     "debug": ["debug@4.4.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/debug/-/debug-4.4.3.tgz", { "dependencies": { "ms": "^2.1.3" } }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
+
+    "decode-named-character-reference": ["decode-named-character-reference@1.2.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/decode-named-character-reference/-/decode-named-character-reference-1.2.0.tgz", { "dependencies": { "character-entities": "^2.0.0" } }, "sha512-c6fcElNV6ShtZXmsgNgFFV5tVX2PaV4g+MOAkb8eXHvn6sryJBrZa9r0zV6+dtTyoCKxtDy5tyQ5ZwQuidtd+Q=="],
 
     "dir-glob": ["dir-glob@3.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/dir-glob/-/dir-glob-3.0.1.tgz", { "dependencies": { "path-type": "^4.0.0" } }, "sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA=="],
 
@@ -225,6 +243,8 @@
 
     "fastq": ["fastq@1.20.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/fastq/-/fastq-1.20.1.tgz", { "dependencies": { "reusify": "^1.0.4" } }, "sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw=="],
 
+    "fault": ["fault@1.0.4", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/fault/-/fault-1.0.4.tgz", { "dependencies": { "format": "^0.2.0" } }, "sha512-CJ0HCB5tL5fYTEA7ToAq5+kTwd++Borf1/bifxd9iT70QcXr4MRrO3Llf8Ifs70q+SJcGHFtnIE/Nw6giCtECA=="],
+
     "filename-reserved-regex": ["filename-reserved-regex@2.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz", {}, "sha512-lc1bnsSr4L4Bdif8Xb/qrtokGbq5zlsms/CYH8PP+WtCkGNF65DPiQY8vG3SakEdRn8Dlnm+gW/qWKKjS5sZzQ=="],
 
     "filenamify": ["filenamify@4.3.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/filenamify/-/filenamify-4.3.0.tgz", { "dependencies": { "filename-reserved-regex": "^2.0.0", "strip-outer": "^1.0.1", "trim-repeated": "^1.0.0" } }, "sha512-hcFKyUG57yWGAzu1CMt/dPzYZuv+jAJUT85bL8mrXvNe6hWj6yEHEc4EdcgiA6Z3oi1/9wXJdZPXF2dZNgwgOg=="],
@@ -234,6 +254,8 @@
     "find-cache-dir": ["find-cache-dir@3.3.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/find-cache-dir/-/find-cache-dir-3.3.2.tgz", { "dependencies": { "commondir": "^1.0.1", "make-dir": "^3.0.2", "pkg-dir": "^4.1.0" } }, "sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig=="],
 
     "find-up": ["find-up@4.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/find-up/-/find-up-4.1.0.tgz", { "dependencies": { "locate-path": "^5.0.0", "path-exists": "^4.0.0" } }, "sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw=="],
+
+    "format": ["format@0.2.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/format/-/format-0.2.2.tgz", {}, "sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww=="],
 
     "fs-extra": ["fs-extra@11.3.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/fs-extra/-/fs-extra-11.3.3.tgz", { "dependencies": { "graceful-fs": "^4.2.0", "jsonfile": "^6.0.1", "universalify": "^2.0.0" } }, "sha512-VWSRii4t0AFm6ixFFmLLx1t7wS1gh+ckoa84aOeapGum0h+EZd1EhEumSB+ZdDLnEPuucsVB9oB7cxJHap6Afg=="],
 
@@ -249,11 +271,27 @@
 
     "graceful-fs": ["graceful-fs@4.2.11", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/graceful-fs/-/graceful-fs-4.2.11.tgz", {}, "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="],
 
+    "hast-util-parse-selector": ["hast-util-parse-selector@4.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/hast-util-parse-selector/-/hast-util-parse-selector-4.0.0.tgz", { "dependencies": { "@types/hast": "^3.0.0" } }, "sha512-wkQCkSYoOGCRKERFWcxMVMOcYE2K1AaNLU8DXS9arxnLOUEWbOXKXiJUNzEpqZ3JOKpnha3jkFrumEjVliDe7A=="],
+
+    "hastscript": ["hastscript@9.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/hastscript/-/hastscript-9.0.1.tgz", { "dependencies": { "@types/hast": "^3.0.0", "comma-separated-tokens": "^2.0.0", "hast-util-parse-selector": "^4.0.0", "property-information": "^7.0.0", "space-separated-tokens": "^2.0.0" } }, "sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w=="],
+
+    "highlight.js": ["highlight.js@10.7.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/highlight.js/-/highlight.js-10.7.3.tgz", {}, "sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A=="],
+
+    "highlightjs-vue": ["highlightjs-vue@1.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/highlightjs-vue/-/highlightjs-vue-1.0.0.tgz", {}, "sha512-PDEfEF102G23vHmPhLyPboFCD+BkMGu+GuJe2d9/eH4FsCwvgBpnc9n0pGE+ffKdph38s6foEZiEjdgHdzp+IA=="],
+
     "ignore": ["ignore@5.3.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/ignore/-/ignore-5.3.2.tgz", {}, "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="],
+
+    "is-alphabetical": ["is-alphabetical@2.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-alphabetical/-/is-alphabetical-2.0.1.tgz", {}, "sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ=="],
+
+    "is-alphanumerical": ["is-alphanumerical@2.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-alphanumerical/-/is-alphanumerical-2.0.1.tgz", { "dependencies": { "is-alphabetical": "^2.0.0", "is-decimal": "^2.0.0" } }, "sha512-hmbYhX/9MUMF5uh7tOXyK/n0ZvWpad5caBA17GsC6vyuCqaWliRG5K1qS9inmUhEMaOBIW7/whAnSwveW/LtZw=="],
+
+    "is-decimal": ["is-decimal@2.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-decimal/-/is-decimal-2.0.1.tgz", {}, "sha512-AAB9hiomQs5DXWcRB1rqsxGUstbRroFOPPVAomNk/3XHR5JyEZChOyTWe2oayKnsSsr/kcGqF+z6yuH6HHpN0A=="],
 
     "is-extglob": ["is-extglob@2.1.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-extglob/-/is-extglob-2.1.1.tgz", {}, "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ=="],
 
     "is-glob": ["is-glob@4.0.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-glob/-/is-glob-4.0.3.tgz", { "dependencies": { "is-extglob": "^2.1.1" } }, "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg=="],
+
+    "is-hexadecimal": ["is-hexadecimal@2.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-hexadecimal/-/is-hexadecimal-2.0.1.tgz", {}, "sha512-DgZQp241c8oO6cA1SbTEWiXeoxV42vlcJxgH+B3hi1AiqqKruZR3ZGF8In3fj4+/y/7rHvlOZLZtgJ/4ttYGZg=="],
 
     "is-number": ["is-number@7.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/is-number/-/is-number-7.0.0.tgz", {}, "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng=="],
 
@@ -268,6 +306,8 @@
     "locate-path": ["locate-path@5.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/locate-path/-/locate-path-5.0.0.tgz", { "dependencies": { "p-locate": "^4.1.0" } }, "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="],
 
     "loose-envify": ["loose-envify@1.4.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/loose-envify/-/loose-envify-1.4.0.tgz", { "dependencies": { "js-tokens": "^3.0.0 || ^4.0.0" }, "bin": { "loose-envify": "cli.js" } }, "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="],
+
+    "lowlight": ["lowlight@1.20.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/lowlight/-/lowlight-1.20.0.tgz", { "dependencies": { "fault": "^1.0.0", "highlight.js": "~10.7.0" } }, "sha512-8Ktj+prEb1RoCPkEOrPMYUN/nCggB7qAWe3a7OpMjWQkh3l2RD5wKRQ+o8Q8YuI9RG/xs95waaI/E6ym/7NsTw=="],
 
     "lru-cache": ["lru-cache@5.1.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/lru-cache/-/lru-cache-5.1.1.tgz", { "dependencies": { "yallist": "^3.0.2" } }, "sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w=="],
 
@@ -289,6 +329,8 @@
 
     "p-try": ["p-try@2.2.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/p-try/-/p-try-2.2.0.tgz", {}, "sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ=="],
 
+    "parse-entities": ["parse-entities@4.0.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/parse-entities/-/parse-entities-4.0.2.tgz", { "dependencies": { "@types/unist": "^2.0.0", "character-entities-legacy": "^3.0.0", "character-reference-invalid": "^2.0.0", "decode-named-character-reference": "^1.0.0", "is-alphanumerical": "^2.0.0", "is-decimal": "^2.0.0", "is-hexadecimal": "^2.0.0" } }, "sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw=="],
+
     "path-exists": ["path-exists@4.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/path-exists/-/path-exists-4.0.0.tgz", {}, "sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w=="],
 
     "path-type": ["path-type@4.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/path-type/-/path-type-4.0.0.tgz", {}, "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw=="],
@@ -301,6 +343,10 @@
 
     "postcss": ["postcss@8.5.6", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/postcss/-/postcss-8.5.6.tgz", { "dependencies": { "nanoid": "^3.3.11", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }, "sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg=="],
 
+    "prismjs": ["prismjs@1.30.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/prismjs/-/prismjs-1.30.0.tgz", {}, "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="],
+
+    "property-information": ["property-information@7.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/property-information/-/property-information-7.1.0.tgz", {}, "sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ=="],
+
     "queue-microtask": ["queue-microtask@1.2.3", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/queue-microtask/-/queue-microtask-1.2.3.tgz", {}, "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="],
 
     "react": ["react@18.3.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/react/-/react-18.3.1.tgz", { "dependencies": { "loose-envify": "^1.1.0" } }, "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ=="],
@@ -309,9 +355,11 @@
 
     "react-refresh": ["react-refresh@0.17.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/react-refresh/-/react-refresh-0.17.0.tgz", {}, "sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ=="],
 
-    "reusify": ["reusify@1.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/reusify/-/reusify-1.1.0.tgz", {}, "sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw=="],
+    "react-syntax-highlighter": ["react-syntax-highlighter@16.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/react-syntax-highlighter/-/react-syntax-highlighter-16.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.28.4", "highlight.js": "^10.4.1", "highlightjs-vue": "^1.0.0", "lowlight": "^1.17.0", "prismjs": "^1.30.0", "refractor": "^5.0.0" }, "peerDependencies": { "react": ">= 0.14.0" } }, "sha512-E40/hBiP5rCNwkeBN1vRP+xow1X0pndinO+z3h7HLsHyjztbyjfzNWNKuAsJj+7DLam9iT4AaaOZnueCU+Nplg=="],
 
-    "reveal.js": ["reveal.js@5.2.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/reveal.js/-/reveal.js-5.2.1.tgz", {}, "sha512-r7//6mIM5p34hFiDMvYfXgyjXqGRta+/psd9YtytsgRlrpRzFv4RbH76TXd2qD+7ZPZEbpBDhdRhJaFgfQ7zNQ=="],
+    "refractor": ["refractor@5.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/refractor/-/refractor-5.0.0.tgz", { "dependencies": { "@types/hast": "^3.0.0", "@types/prismjs": "^1.0.0", "hastscript": "^9.0.0", "parse-entities": "^4.0.0" } }, "sha512-QXOrHQF5jOpjjLfiNk5GFnWhRXvxjUVnlFxkeDmewR5sXkr3iM46Zo+CnRR8B+MDVqkULW4EcLVcRBNOPXHosw=="],
+
+    "reusify": ["reusify@1.1.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/reusify/-/reusify-1.1.0.tgz", {}, "sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw=="],
 
     "rollup": ["rollup@4.54.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/rollup/-/rollup-4.54.0.tgz", { "dependencies": { "@types/estree": "1.0.8" }, "optionalDependencies": { "@rollup/rollup-android-arm-eabi": "4.54.0", "@rollup/rollup-android-arm64": "4.54.0", "@rollup/rollup-darwin-arm64": "4.54.0", "@rollup/rollup-darwin-x64": "4.54.0", "@rollup/rollup-freebsd-arm64": "4.54.0", "@rollup/rollup-freebsd-x64": "4.54.0", "@rollup/rollup-linux-arm-gnueabihf": "4.54.0", "@rollup/rollup-linux-arm-musleabihf": "4.54.0", "@rollup/rollup-linux-arm64-gnu": "4.54.0", "@rollup/rollup-linux-arm64-musl": "4.54.0", "@rollup/rollup-linux-loong64-gnu": "4.54.0", "@rollup/rollup-linux-ppc64-gnu": "4.54.0", "@rollup/rollup-linux-riscv64-gnu": "4.54.0", "@rollup/rollup-linux-riscv64-musl": "4.54.0", "@rollup/rollup-linux-s390x-gnu": "4.54.0", "@rollup/rollup-linux-x64-gnu": "4.54.0", "@rollup/rollup-linux-x64-musl": "4.54.0", "@rollup/rollup-openharmony-arm64": "4.54.0", "@rollup/rollup-win32-arm64-msvc": "4.54.0", "@rollup/rollup-win32-ia32-msvc": "4.54.0", "@rollup/rollup-win32-x64-gnu": "4.54.0", "@rollup/rollup-win32-x64-msvc": "4.54.0", "fsevents": "~2.3.2" }, "bin": { "rollup": "dist/bin/rollup" } }, "sha512-3nk8Y3a9Ea8szgKhinMlGMhGMw89mqule3KWczxhIzqudyHdCIOHw8WJlj/r329fACjKLEh13ZSk7oE22kyeIw=="],
 
@@ -324,6 +372,8 @@
     "slash": ["slash@3.0.0", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/slash/-/slash-3.0.0.tgz", {}, "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="],
 
     "source-map-js": ["source-map-js@1.2.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/source-map-js/-/source-map-js-1.2.1.tgz", {}, "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="],
+
+    "space-separated-tokens": ["space-separated-tokens@2.0.2", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/space-separated-tokens/-/space-separated-tokens-2.0.2.tgz", {}, "sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q=="],
 
     "strip-outer": ["strip-outer@1.0.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/strip-outer/-/strip-outer-1.0.1.tgz", { "dependencies": { "escape-string-regexp": "^1.0.2" } }, "sha512-k55yxKHwaXnpYGsOzg4Vl8+tDrWylxDEpknGjhTiZB8dFRU5rTo9CAzeycivxV3s+zlTKwrs6WxMxR95n26kwg=="],
 
@@ -340,5 +390,7 @@
     "vite": ["vite@5.4.21", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/vite/-/vite-5.4.21.tgz", { "dependencies": { "esbuild": "^0.21.3", "postcss": "^8.4.43", "rollup": "^4.20.0" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^18.0.0 || >=20.0.0", "less": "*", "lightningcss": "^1.21.0", "sass": "*", "sass-embedded": "*", "stylus": "*", "sugarss": "*", "terser": "^5.4.0" }, "optionalPeers": ["@types/node", "less", "lightningcss", "sass", "sass-embedded", "stylus", "sugarss", "terser"], "bin": { "vite": "bin/vite.js" } }, "sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw=="],
 
     "yallist": ["yallist@3.1.1", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/yallist/-/yallist-3.1.1.tgz", {}, "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="],
+
+    "parse-entities/@types/unist": ["@types/unist@2.0.11", "https://artifactory.grammarly.io/artifactory/api/npm/common-npm/@types/unist/-/unist-2.0.11.tgz", {}, "sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA=="],
   }
 }

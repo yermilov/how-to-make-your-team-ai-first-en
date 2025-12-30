@@ -5,7 +5,11 @@
       "Bash(bun run build)",
       "Bash(gh api:*)",
       "Bash(gh run view:*)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Skill(frontend-design:frontend-design)",
+      "Bash(git add:*)"
     ]
   }
 }

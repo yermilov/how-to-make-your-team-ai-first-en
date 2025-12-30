@@ -1,0 +1,94 @@
+:root {
+  /* === CRT TERMINAL COLOR PALETTE === */
+
+  /* Deep blacks with subtle blue undertone */
+  --terminal-bg: #0a0e14;
+  --terminal-bg-secondary: #0d1219;
+  --terminal-bg-input: #0f151c;
+  --terminal-bg-elevated: #141b24;
+
+  /* Phosphor text colors with glow potential */
+  --terminal-white: #e2e8f0;
+  --terminal-white-dim: #94a3b8;
+  --terminal-white-muted: #475569;
+
+  /* Claude Code signature orange - warm CRT amber */
+  --terminal-orange: #f0883e;
+  --terminal-orange-dim: #c96f2e;
+  --terminal-orange-glow: rgba(240, 136, 62, 0.4);
+  --terminal-orange-bright: #ffa657;
+
+  /* Terminal green - phosphor P1 inspired */
+  --terminal-green: #7ee787;
+  --terminal-green-dim: #56d364;
+  --terminal-green-glow: rgba(126, 231, 135, 0.35);
+  --terminal-green-bright: #a5f3b4;
+
+  /* Accent colors for syntax highlighting */
+  --terminal-blue: #79c0ff;
+  --terminal-blue-glow: rgba(121, 192, 255, 0.3);
+  --terminal-purple: #d2a8ff;
+  --terminal-purple-glow: rgba(210, 168, 255, 0.3);
+  --terminal-red: #ff7b72;
+  --terminal-red-glow: rgba(255, 123, 114, 0.3);
+  --terminal-cyan: #76e4f7;
+  --terminal-cyan-glow: rgba(118, 228, 247, 0.3);
+  --terminal-yellow: #ffd166;
+
+  /* Border colors */
+  --terminal-border: #1e293b;
+  --terminal-border-bright: #334155;
+  --terminal-border-focus: var(--terminal-orange);
+
+  /* === TYPOGRAPHY === */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+
+  /* Slide typography - large and impactful */
+  --font-size-hero: 5rem;
+  --font-size-h1: 4rem;
+  --font-size-h2: 3rem;
+  --font-size-h3: 2.25rem;
+  --font-size-body: 1.5rem;
+  --font-size-code: 1.25rem;
+  --font-size-input: 1.125rem;
+  --font-size-small: 0.875rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* === SPACING === */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* === INPUT STYLING === */
+  --input-height: 3.5rem;
+  --input-border-radius: 0.5rem;
+  --input-padding-x: 1.25rem;
+
+  /* === EFFECTS === */
+  --transition-instant: 50ms ease;
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease-out;
+  --transition-slow: 500ms ease-out;
+
+  /* Glow effects */
+  --glow-orange: 0 0 20px var(--terminal-orange-glow), 0 0 40px var(--terminal-orange-glow);
+  --glow-green: 0 0 20px var(--terminal-green-glow), 0 0 40px var(--terminal-green-glow);
+  --glow-text-orange: 0 0 10px var(--terminal-orange-glow);
+  --glow-text-green: 0 0 10px var(--terminal-green-glow);
+
+  /* CRT effects */
+  --scanline-opacity: 0.03;
+  --noise-opacity: 0.015;
+  --flicker-intensity: 0.005;
+}
