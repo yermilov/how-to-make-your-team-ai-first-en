@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2xl) var(--space-3xl);
+  padding: var(--space-lg) var(--space-xl);
   position: relative;
   overflow: hidden;
 }
@@ -52,7 +52,7 @@
 /* === SLIDE === */
 .slide {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   color: var(--terminal-white);
   font-family: var(--font-mono);
   text-align: center;
@@ -274,27 +274,32 @@
 /* === SLIDE PROGRESS === */
 .slide-progress {
   position: fixed;
-  bottom: calc(var(--input-height) + var(--space-xl) + var(--space-lg));
+  bottom: calc(var(--input-height) + var(--space-xl) + var(--space-md));
   right: var(--space-xl);
-  color: var(--terminal-white-muted);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-small);
-  letter-spacing: var(--letter-spacing-wide);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   z-index: 100;
 }
 
-.slide-progress-current {
-  color: var(--terminal-orange);
-  text-shadow: var(--glow-text-orange);
+.progress-bar {
+  width: 120px;
+  height: 4px;
+  background: var(--terminal-border);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-.slide-progress-separator {
-  color: var(--terminal-border-bright);
-  margin: 0 var(--space-xs);
+.progress-fill {
+  height: 100%;
+  background: var(--terminal-orange);
+  transition: width var(--transition-normal);
 }
 
-.slide-progress-total {
+.progress-text {
   color: var(--terminal-white-muted);
+  font-size: var(--font-size-small);
+  font-family: var(--font-mono);
 }
 
 /* === CODE BLOCK === */
