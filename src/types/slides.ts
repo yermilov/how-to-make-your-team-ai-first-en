@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export interface SlideContentProps {
   revealed: boolean;
   inputText: string;
+  activatedTools: Set<string>;
 }
 
 export interface SlideDefinition {

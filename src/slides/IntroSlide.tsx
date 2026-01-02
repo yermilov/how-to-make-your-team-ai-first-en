@@ -17,13 +17,13 @@ const AI_TOOLS = [
   {
     id: 'cursor',
     name: 'Cursor',
-    url: 'https://svgl.app/library/cursor.svg',
+    url: 'https://svgl.app/cursor.svg',
     keywords: ['cursor'],
   },
   {
     id: 'amp',
     name: 'Amp',
-    url: 'https://svgl.app/library/sourcegraph.svg',
+    url: 'https://svgl.app/sourcegraph.svg',
     keywords: ['amp', 'sourcegraph'],
   },
   {
@@ -35,19 +35,27 @@ const AI_TOOLS = [
   {
     id: 'copilot',
     name: 'Copilot',
-    url: 'https://svgl.app/library/github-copilot.svg',
+    url: 'https://svgl.app/github-copilot.svg',
     keywords: ['copilot', 'github copilot'],
   },
   {
     id: 'lovable',
     name: 'Lovable',
-    url: 'https://svgl.app/library/lovable.svg',
+    url: 'https://svgl.app/lovable.svg',
     keywords: ['lovable'],
   },
 ];
 
-// Check if any keyword matches the input
-function isToolActive(tool: typeof AI_TOOLS[0], input: string): boolean {
+// Check if tool is active (either persisted or currently typing)
+function isToolActive(
+  tool: typeof AI_TOOLS[0],
+  input: string,
+  activatedTools: Set<string>
+): boolean {
+  // Check if already activated (persisted)
+  if (activatedTools.has(tool.id)) return true;
+
+  // Check if currently typing matches
   if (!input.trim()) return false;
   const normalizedInput = input.toLowerCase().trim();
   return tool.keywords.some(keyword =>
@@ -56,7 +64,10 @@ function isToolActive(tool: typeof AI_TOOLS[0], input: string): boolean {
 }
 
 // Check if question mark should be active
-function isQuestionMarkActive(input: string): boolean {
+function isQuestionMarkActive(input: string, activatedTools: Set<string>): boolean {
+  // Check if already activated
+  if (activatedTools.has('other')) return true;
+
   if (!input.trim()) return false;
   const normalizedInput = input.toLowerCase().trim();
   return normalizedInput.includes('?') ||
@@ -67,7 +78,7 @@ function isQuestionMarkActive(input: string): boolean {
 
 export const IntroSlide: SlideDefinition = {
   id: 'intro',
-  content: ({ inputText }: SlideContentProps) => (
+  content: ({ inputText, activatedTools }: SlideContentProps) => (
     <>
       <h2>давайте знайомитися далі</h2>
       <h1 className="hero">розкажіть про свій досвід ai кодінгу</h1>
@@ -76,7 +87,7 @@ export const IntroSlide: SlideDefinition = {
         {AI_TOOLS.map((tool, index) => (
           <div
             key={tool.id}
-            className={`tool-item ${isToolActive(tool, inputText) ? 'active' : ''}`}
+            className={`tool-item ${isToolActive(tool, inputText, activatedTools) ? 'active' : ''}`}
             style={{ animationDelay: `${index * 0.08}s` }}
           >
             <div className="tool-logo-wrapper">
@@ -94,7 +105,7 @@ export const IntroSlide: SlideDefinition = {
 
         {/* Question mark for "something else" */}
         <div
-          className={`tool-item ${isQuestionMarkActive(inputText) ? 'active' : ''}`}
+          className={`tool-item ${isQuestionMarkActive(inputText, activatedTools) ? 'active' : ''}`}
           style={{ animationDelay: `${AI_TOOLS.length * 0.08}s` }}
         >
           <div className="tool-logo-wrapper">

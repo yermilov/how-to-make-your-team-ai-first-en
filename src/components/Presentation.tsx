@@ -9,6 +9,29 @@ import { Timer } from './Timer';
 const TIMER_STARTED_AT_KEY = 'timerStartedAt';
 const TIMER_ACCUMULATED_KEY = 'timerAccumulated';
 
+// Tool keywords for activation persistence
+const TOOL_KEYWORDS: Record<string, string[]> = {
+  claude: ['claude', 'claude code', 'anthropic'],
+  codex: ['codex', 'openai'],
+  cursor: ['cursor'],
+  amp: ['amp', 'sourcegraph'],
+  gemini: ['gemini', 'gemini-cli', 'google'],
+  copilot: ['copilot', 'github copilot'],
+  lovable: ['lovable'],
+  other: ['?', 'other', 'else', 'something'],
+};
+
+// Find which tool IDs match the input
+function getMatchingToolIds(input: string): string[] {
+  if (!input.trim()) return [];
+  const normalizedInput = input.toLowerCase().trim();
+  return Object.entries(TOOL_KEYWORDS)
+    .filter(([, keywords]) =>
+      keywords.some(kw => normalizedInput.includes(kw) || kw.includes(normalizedInput))
+    )
+    .map(([id]) => id);
+}
+
 function getInitialTimerState(): { seconds: number; running: boolean } {
   const startedAt = localStorage.getItem(TIMER_STARTED_AT_KEY);
   const accumulated = parseInt(localStorage.getItem(TIMER_ACCUMULATED_KEY) || '0', 10);
@@ -28,6 +51,9 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
 
   // Track current input text for interactive slides
   const [inputText, setInputText] = useState('');
+
+  // Track activated tools (persists after Enter)
+  const [activatedTools, setActivatedTools] = useState<Set<string>>(new Set());
 
   // Timer state with localStorage persistence
   const [timerSeconds, setTimerSeconds] = useState(() => getInitialTimerState().seconds);
@@ -89,9 +115,19 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
     localStorage.removeItem(TIMER_ACCUMULATED_KEY);
   }, []);
 
-  // Command handler that intercepts timer commands
+  // Command handler that intercepts timer commands and activates tools
   const handleCommand = useCallback((command: string) => {
     const trimmed = command.trim().toLowerCase();
+
+    // Check for tool activation before other commands
+    const matchingTools = getMatchingToolIds(command);
+    if (matchingTools.length > 0) {
+      setActivatedTools(prev => {
+        const next = new Set(prev);
+        matchingTools.forEach(id => next.add(id));
+        return next;
+      });
+    }
 
     switch (trimmed) {
       case 'start':
@@ -118,7 +154,7 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
 
   const slideContent =
     typeof activeSlide.content === 'function'
-      ? activeSlide.content({ revealed, inputText })
+      ? activeSlide.content({ revealed, inputText, activatedTools })
       : activeSlide.content;
 
   return (
