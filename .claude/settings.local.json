@@ -13,7 +13,12 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Skill(codex:codex)",
-      "Bash(bunx vite build:*)"
+      "Bash(bunx vite build:*)",
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:svgl.app)",
+      "Skill(frontend-design)",
+      "Bash(./node_modules/.bin/vite build:*)"
     ]
   }
 }
