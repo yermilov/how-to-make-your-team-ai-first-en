@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from 'react';
 import { PresentationProps } from '../types/slides';
 import { useSlideNavigation } from '../hooks/useSlideNavigation';
 import { Slide } from './Slide';
@@ -5,11 +6,106 @@ import { TerminalInput } from './TerminalInput';
 import { SlideProgress } from './SlideProgress';
 import { Timer } from './Timer';
 
+const TIMER_STARTED_AT_KEY = 'timerStartedAt';
+const TIMER_ACCUMULATED_KEY = 'timerAccumulated';
+
+function getInitialTimerState(): { seconds: number; running: boolean } {
+  const startedAt = localStorage.getItem(TIMER_STARTED_AT_KEY);
+  const accumulated = parseInt(localStorage.getItem(TIMER_ACCUMULATED_KEY) || '0', 10);
+
+  if (startedAt) {
+    const elapsed = Math.floor((Date.now() - parseInt(startedAt, 10)) / 1000);
+    return { seconds: accumulated + elapsed, running: true };
+  }
+  return { seconds: accumulated, running: false };
+}
+
 export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
-  const { currentSlide, handleCommand, revealed } = useSlideNavigation(
+  const { currentSlide, handleCommand: handleNavCommand, revealed } = useSlideNavigation(
     slides.length,
     initialSlide
   );
+
+  // Timer state with localStorage persistence
+  const [timerSeconds, setTimerSeconds] = useState(() => getInitialTimerState().seconds);
+  const [timerRunning, setTimerRunning] = useState(() => getInitialTimerState().running);
+
+  useEffect(() => {
+    if (!timerRunning) return;
+
+    const interval = setInterval(() => {
+      setTimerSeconds((s) => s + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timerRunning]);
+
+  const handleTimerStart = useCallback(() => {
+    setTimerRunning(true);
+    setTimerSeconds((currentSeconds) => {
+      localStorage.setItem(TIMER_STARTED_AT_KEY, Date.now().toString());
+      localStorage.setItem(TIMER_ACCUMULATED_KEY, currentSeconds.toString());
+      return currentSeconds;
+    });
+  }, []);
+
+  const handleTimerPause = useCallback(() => {
+    setTimerRunning(false);
+    setTimerSeconds((currentSeconds) => {
+      localStorage.removeItem(TIMER_STARTED_AT_KEY);
+      localStorage.setItem(TIMER_ACCUMULATED_KEY, currentSeconds.toString());
+      return currentSeconds;
+    });
+  }, []);
+
+  const handleTimerStartPause = useCallback(() => {
+    setTimerRunning((running) => {
+      if (running) {
+        // Pausing
+        setTimerSeconds((currentSeconds) => {
+          localStorage.removeItem(TIMER_STARTED_AT_KEY);
+          localStorage.setItem(TIMER_ACCUMULATED_KEY, currentSeconds.toString());
+          return currentSeconds;
+        });
+      } else {
+        // Starting
+        setTimerSeconds((currentSeconds) => {
+          localStorage.setItem(TIMER_STARTED_AT_KEY, Date.now().toString());
+          localStorage.setItem(TIMER_ACCUMULATED_KEY, currentSeconds.toString());
+          return currentSeconds;
+        });
+      }
+      return !running;
+    });
+  }, []);
+
+  const handleTimerReset = useCallback(() => {
+    setTimerRunning(false);
+    setTimerSeconds(0);
+    localStorage.removeItem(TIMER_STARTED_AT_KEY);
+    localStorage.removeItem(TIMER_ACCUMULATED_KEY);
+  }, []);
+
+  // Command handler that intercepts timer commands
+  const handleCommand = useCallback((command: string) => {
+    const trimmed = command.trim().toLowerCase();
+
+    switch (trimmed) {
+      case 'start':
+      case 'go':
+        handleTimerStart();
+        return;
+      case 'pause':
+      case 'stop':
+        handleTimerPause();
+        return;
+      case 'reset':
+        handleTimerReset();
+        return;
+      default:
+        handleNavCommand(command);
+    }
+  }, [handleNavCommand, handleTimerStart, handleTimerPause, handleTimerReset]);
 
   const activeSlide = slides[currentSlide];
 
@@ -33,7 +129,12 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
           {slideContent}
         </Slide>
       </div>
-      <Timer />
+      <Timer
+        seconds={timerSeconds}
+        isRunning={timerRunning}
+        onStartPause={handleTimerStartPause}
+        onReset={handleTimerReset}
+      />
       <SlideProgress current={currentSlide + 1} total={slides.length} />
       <TerminalInput
         onCommand={handleCommand}
