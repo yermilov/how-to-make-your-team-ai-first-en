@@ -375,7 +375,38 @@
   font-size: var(--font-size-small);
   font-family: var(--font-mono);
   text-align: center;
-  margin-right: 52px; /* Balance the dots width */
+}
+
+/* Copy button */
+.code-block-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--terminal-white-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.code-block-copy:hover {
+  color: var(--terminal-white);
+  background: var(--terminal-bg-secondary);
+  border-color: var(--terminal-border);
+}
+
+.code-block-copy.copied {
+  color: var(--terminal-green);
+}
+
+.code-block-copy svg {
+  width: 16px;
+  height: 16px;
 }
 
 .code-block pre {

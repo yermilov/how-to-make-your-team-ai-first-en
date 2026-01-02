@@ -5,7 +5,7 @@ export const InstallSlide: SlideDefinition = {
   id: 'install',
   content: (
     <>
-      <h2>встановлення</h2>
+      <h2>як почати?</h2>
       <CodeBlock
         language="bash"
         filename="terminal"
