@@ -1,5 +1,6 @@
 import { SlideDefinition } from '../types/slides';
 import { CodeBlock } from '../components/CodeBlock';
+import claudePricing from '/claude-pricing.png?url';
 
 export const InstallSlide: SlideDefinition = {
   id: 'install',
@@ -12,7 +13,7 @@ export const InstallSlide: SlideDefinition = {
         code={`curl -fsSL https://claude.ai/install.sh | bash`}
       />
       <img
-        src="/claude-pricing.png"
+        src={claudePricing}
         alt="Claude pricing tiers: Free, Pro, Max"
         style={{ maxWidth: '80%', marginTop: '2rem', borderRadius: '0.5rem' }}
       />
