@@ -11,6 +11,11 @@ export const InstallSlide: SlideDefinition = {
         filename="terminal"
         code={`curl -fsSL https://claude.ai/install.sh | bash`}
       />
+      <img
+        src="/claude-pricing.png"
+        alt="Claude pricing tiers: Free, Pro, Max"
+        style={{ maxWidth: '80%', marginTop: '2rem', borderRadius: '0.5rem' }}
+      />
     </>
   ),
 };

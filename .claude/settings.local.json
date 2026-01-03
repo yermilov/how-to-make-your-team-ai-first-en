@@ -18,7 +18,13 @@
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:svgl.app)",
       "Skill(frontend-design)",
-      "Bash(./node_modules/.bin/vite build:*)"
+      "Bash(./node_modules/.bin/vite build:*)",
+      "WebFetch(domain:upload.wikimedia.org)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Skill(generate-image)",
+      "Bash(bun:*)"
     ]
   }
 }
