@@ -185,6 +185,26 @@ bun --env-file=.env.local .claude/skills/generate-image/scripts/generate.ts \
 
 Generated images are saved to `src/assets/generated/`.
 
+## Troubleshooting
+
+### `bun install` hangs at "Resolving..."
+
+**Symptom:** `bun install` hangs indefinitely at "Resolving..." or "Resolved, downloaded and extracted [N]"
+
+**Root cause:** The `bun.lock` file may contain URLs to a private registry (e.g., Artifactory) that's unreachable from your network.
+
+**Fix:**
+```bash
+rm -rf bun.lock bun.lockb node_modules package-lock.json && bun install
+```
+
+This regenerates the lockfile using the public npm registry.
+
+**How to diagnose:** Check if `bun.lock` contains private registry URLs:
+```bash
+grep -n "artifactory\|private\|internal" bun.lock
+```
+
 ## Git Conventions
 
 - Commit messages: `Add/Update/Fix/Remove [description]`
