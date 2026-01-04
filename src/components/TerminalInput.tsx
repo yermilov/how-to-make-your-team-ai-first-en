@@ -35,6 +35,13 @@ export function TerminalInput({
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+
+      // Don't steal focus if user has selected text
+      const selection = window.getSelection();
+      if (selection && selection.toString().length > 0) {
+        return;
+      }
+
       // Don't steal focus from code blocks or other interactive elements
       if (
         target.tagName !== 'A' &&
