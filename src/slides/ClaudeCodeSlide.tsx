@@ -2,6 +2,19 @@ import { SlideDefinition } from '../types/slides';
 
 export const ClaudeCodeSlide: SlideDefinition = {
   id: 'claude-code',
+  tooltip: (
+    <>
+      <div className="onboarding-tooltip-header">
+        <span className="onboarding-tooltip-icon">?</span>
+        <span className="onboarding-tooltip-title">Підказка</span>
+      </div>
+      <ul className="onboarding-tooltip-list">
+        <li>
+          <code>reveal</code> або <code>r</code> — Показати далі
+        </li>
+      </ul>
+    </>
+  ),
   content: ({ revealStage }) => (
     <>
       <h2>що за класний сервіс для створення слайдів?</h2>

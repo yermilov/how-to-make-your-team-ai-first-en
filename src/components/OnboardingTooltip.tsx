@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 interface OnboardingTooltipProps {
   visible?: boolean;
 }
@@ -23,6 +25,21 @@ export function OnboardingTooltip({ visible = true }: OnboardingTooltipProps) {
         </li>
         <li>Стрілки також працюють!</li>
       </ul>
+    </div>
+  );
+}
+
+interface ContextTooltipProps {
+  visible?: boolean;
+  children: ReactNode;
+}
+
+export function ContextTooltip({ visible = true, children }: ContextTooltipProps) {
+  if (!visible) return null;
+
+  return (
+    <div className="onboarding-tooltip">
+      {children}
     </div>
   );
 }

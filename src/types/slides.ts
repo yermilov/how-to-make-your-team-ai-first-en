@@ -11,6 +11,7 @@ export interface SlideDefinition {
   content: ReactNode | ((props: SlideContentProps) => ReactNode);
   notes?: string;
   background?: string;
+  tooltip?: ReactNode;
 }
 
 export interface CodeBlockProps {
@@ -24,6 +25,8 @@ export interface CodeBlockProps {
 export interface TerminalInputProps {
   onCommand: (command: string) => void;
   onInputChange?: (value: string) => void;
+  onArrowLeft?: () => void;
+  onArrowRight?: () => void;
   placeholder?: string;
   disabled?: boolean;
 }

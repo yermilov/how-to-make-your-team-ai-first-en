@@ -4,6 +4,8 @@ import { TerminalInputProps } from '../types/slides';
 export function TerminalInput({
   onCommand,
   onInputChange,
+  onArrowLeft,
+  onArrowRight,
   placeholder = 'type a command...',
   disabled = false,
 }: TerminalInputProps) {
@@ -28,6 +30,21 @@ export function TerminalInput({
       onCommand(value);
       setValue('');
       onInputChange?.('');
+      return;
+    }
+
+    // Arrow key navigation when input is empty
+    if (!value) {
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && onArrowLeft) {
+        e.preventDefault();
+        onArrowLeft();
+        return;
+      }
+      if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && onArrowRight) {
+        e.preventDefault();
+        onArrowRight();
+        return;
+      }
     }
   };
 

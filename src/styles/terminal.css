@@ -1109,3 +1109,113 @@
     max-height: calc(100vh - 180px);
   }
 }
+
+/* === POINTER TOOLTIPS === */
+/* Small tooltips that point to specific UI elements (timer, progress bar) */
+
+.pointer-tooltip {
+  position: fixed;
+  bottom: calc(var(--input-height) + var(--space-xl) + var(--space-md) + 56px);
+  background: var(--terminal-bg-elevated);
+  border: 1px solid var(--terminal-border);
+  border-radius: var(--input-border-radius);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 1002;
+  max-width: 280px;
+  animation: pointerTooltipIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pointerTooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left tooltip (above timer) */
+.pointer-tooltip--left {
+  left: var(--space-xl);
+}
+
+/* Right tooltip (above progress bar) */
+.pointer-tooltip--right {
+  right: var(--space-xl);
+}
+
+/* Downward pointing arrow */
+.pointer-tooltip-arrow {
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--terminal-border);
+}
+
+.pointer-tooltip-arrow::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--terminal-bg-elevated);
+}
+
+.pointer-tooltip--left .pointer-tooltip-arrow {
+  left: 24px;
+}
+
+.pointer-tooltip--right .pointer-tooltip-arrow {
+  right: 24px;
+}
+
+/* Tooltip content styling */
+.pointer-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.pointer-tooltip-icon {
+  font-size: 0.9rem;
+}
+
+.pointer-tooltip-title {
+  color: var(--terminal-orange);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-shadow: var(--glow-text-orange);
+}
+
+.pointer-tooltip-text {
+  color: var(--terminal-white-dim);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  line-height: 1.4;
+}
+
+.pointer-tooltip-text code {
+  background: var(--terminal-bg-secondary);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--terminal-cyan);
+  font-size: 0.8em;
+  border: 1px solid var(--terminal-border);
+}
+
+/* Responsive - hide on mobile */
+@media (max-width: 640px) {
+  .pointer-tooltip {
+    display: none;
+  }
+}

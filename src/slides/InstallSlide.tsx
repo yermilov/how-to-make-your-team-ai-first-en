@@ -7,6 +7,11 @@ export const InstallSlide: SlideDefinition = {
   content: (
     <div className="install-slide">
       <h2>як почати?</h2>
+      <p>
+        <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">
+          claude.com/product/claude-code
+        </a>
+      </p>
       <CodeBlock
         language="bash"
         filename="terminal"

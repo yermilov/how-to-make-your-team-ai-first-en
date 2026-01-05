@@ -5,7 +5,8 @@ import { Slide } from './Slide';
 import { TerminalInput } from './TerminalInput';
 import { SlideProgress } from './SlideProgress';
 import { Timer } from './Timer';
-import { OnboardingTooltip } from './OnboardingTooltip';
+import { OnboardingTooltip, ContextTooltip } from './OnboardingTooltip';
+import { PointerTooltip } from './PointerTooltip';
 
 const TIMER_STARTED_AT_KEY = 'timerStartedAt';
 const TIMER_ACCUMULATED_KEY = 'timerAccumulated';
@@ -45,7 +46,7 @@ function getInitialTimerState(): { seconds: number; running: boolean } {
 }
 
 export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
-  const { currentSlide, handleCommand: handleNavCommand, revealStage } = useSlideNavigation(
+  const { currentSlide, handleCommand: handleNavCommand, revealStage, nextSlide, prevSlide } = useSlideNavigation(
     slides.length,
     initialSlide
   );
@@ -56,8 +57,13 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
   // Track activated tools (persists after Enter)
   const [activatedTools, setActivatedTools] = useState<Set<string>>(new Set());
 
-  // Track if user has interacted (for onboarding tooltip)
-  const [hasInteracted, setHasInteracted] = useState(false);
+  // Track if user has interacted on current slide (for tooltips)
+  const [slideInteracted, setSlideInteracted] = useState(false);
+
+  // Reset interaction state when slide changes
+  useEffect(() => {
+    setSlideInteracted(false);
+  }, [currentSlide]);
 
   // Timer state with localStorage persistence
   const [timerSeconds, setTimerSeconds] = useState(() => getInitialTimerState().seconds);
@@ -123,8 +129,8 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
   const handleCommand = useCallback((command: string) => {
     const trimmed = command.trim().toLowerCase();
 
-    // Mark as interacted (hides onboarding tooltip)
-    setHasInteracted(true);
+    // Mark as interacted (hides tooltips)
+    setSlideInteracted(true);
 
     // Check for tool activation before other commands
     const matchingTools = getMatchingToolIds(command);
@@ -182,10 +188,37 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
         onReset={handleTimerReset}
       />
       <SlideProgress current={currentSlide + 1} total={slides.length} />
-      {currentSlide === 0 && !hasInteracted && <OnboardingTooltip />}
+      {currentSlide === 0 && !slideInteracted && <OnboardingTooltip />}
+      {activeSlide.tooltip && !slideInteracted && (
+        <ContextTooltip>{activeSlide.tooltip}</ContextTooltip>
+      )}
+      {currentSlide === 0 && !slideInteracted && (
+        <PointerTooltip position="left">
+          <div className="pointer-tooltip-header">
+            <span className="pointer-tooltip-icon">⏱</span>
+            <span className="pointer-tooltip-title">Таймер</span>
+          </div>
+          <p className="pointer-tooltip-text">
+            Відстежує тривалість презентації. Натисни <code>[start]</code> щоб почати.
+          </p>
+        </PointerTooltip>
+      )}
+      {currentSlide === 0 && !slideInteracted && (
+        <PointerTooltip position="right">
+          <div className="pointer-tooltip-header">
+            <span className="pointer-tooltip-icon">📊</span>
+            <span className="pointer-tooltip-title">Context</span>
+          </div>
+          <p className="pointer-tooltip-text">
+            Скільки "контексту" залишилось — жарт для користувачів Claude Code
+          </p>
+        </PointerTooltip>
+      )}
       <TerminalInput
         onCommand={handleCommand}
         onInputChange={setInputText}
+        onArrowLeft={prevSlide}
+        onArrowRight={nextSlide}
         placeholder="type anything to continue, 'prev' to go back, or slide number..."
       />
     </div>
