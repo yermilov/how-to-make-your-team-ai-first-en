@@ -13,19 +13,19 @@ const levelStyles = {
   },
   medium: {
     prefix: '> ',
-    prefixColor: 'var(--terminal-white-dim)',
-    labelColor: 'var(--terminal-white-dim)',
+    prefixColor: 'var(--terminal-blue)',
+    labelColor: 'var(--terminal-white)',
     labelGlow: 'none',
-    descColor: 'var(--terminal-white-muted)',
-    opacity: 0.85,
+    descColor: 'var(--terminal-green-dim)',
+    opacity: 1,
   },
   low: {
     prefix: '--',
-    prefixColor: 'var(--terminal-white-muted)',
-    labelColor: 'var(--terminal-white-muted)',
+    prefixColor: 'var(--terminal-white-dim)',
+    labelColor: 'var(--terminal-white)',
     labelGlow: 'none',
-    descColor: 'var(--terminal-white-muted)',
-    opacity: 0.5,
+    descColor: 'var(--terminal-white-dim)',
+    opacity: 0.85,
   },
 };
 
@@ -39,7 +39,7 @@ function AgendaItem({ level, label, desc }: { level: Level; label: string; desc:
         gridTemplateColumns: '2.5rem 1fr auto',
         alignItems: 'center',
         gap: '0.75rem',
-        fontSize: '1.25rem',
+        fontSize: '1.6rem',
         opacity: s.opacity,
       }}
     >
@@ -55,7 +55,7 @@ function AgendaItem({ level, label, desc }: { level: Level; label: string; desc:
       <span
         style={{
           color: s.descColor,
-          fontSize: '1rem',
+          fontSize: '1.35rem',
           fontStyle: 'italic',
         }}
       >
@@ -71,7 +71,7 @@ function AgendaSection({ title, children }: { title: string; children: React.Rea
       <div
         style={{
           color: 'var(--terminal-blue)',
-          fontSize: '0.85rem',
+          fontSize: '1.1rem',
           letterSpacing: '0.15em',
           marginBottom: '0.75rem',
           borderBottom: '1px solid var(--terminal-border)',
@@ -94,7 +94,7 @@ export const AgendaSlide: SlideDefinition = {
         <span className="text-dim">$</span> ./talk <span className="text-orange">--help</span>
       </h2>
 
-      <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>
+      <p style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>
         про що ми сьогодні будемо і не будемо говорити?
       </p>
 

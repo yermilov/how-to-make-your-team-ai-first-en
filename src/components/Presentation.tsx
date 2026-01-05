@@ -195,7 +195,7 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
       {currentSlide === 0 && !slideInteracted && (
         <PointerTooltip position="left">
           <div className="pointer-tooltip-header">
-            <span className="pointer-tooltip-icon">⏱</span>
+            <span className="onboarding-tooltip-icon">?</span>
             <span className="pointer-tooltip-title">Таймер</span>
           </div>
           <p className="pointer-tooltip-text">
@@ -205,6 +205,9 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
       )}
       {currentSlide === 0 && !slideInteracted && (
         <PointerTooltip position="right">
+          <div className="pointer-tooltip-header">
+            <span className="onboarding-tooltip-icon">?</span>
+          </div>
           <p className="pointer-tooltip-text">
             прогрес по слайдам
           </p>

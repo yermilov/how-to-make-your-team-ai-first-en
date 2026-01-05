@@ -13,17 +13,17 @@ const levelStyles = {
   },
   medium: {
     prefix: '> ',
-    prefixColor: 'var(--terminal-white-dim)',
-    labelColor: 'var(--terminal-white-dim)',
+    prefixColor: 'var(--terminal-blue)',
+    labelColor: 'var(--terminal-white)',
     labelGlow: 'none',
-    opacity: 0.85,
+    opacity: 1,
   },
   low: {
     prefix: '--',
-    prefixColor: 'var(--terminal-white-muted)',
-    labelColor: 'var(--terminal-white-muted)',
+    prefixColor: 'var(--terminal-white-dim)',
+    labelColor: 'var(--terminal-white)',
     labelGlow: 'none',
-    opacity: 0.5,
+    opacity: 0.85,
   },
 };
 
@@ -37,7 +37,7 @@ function BioItem({ level, children }: { level: Level; children: React.ReactNode 
         gridTemplateColumns: '2.5rem 1fr',
         alignItems: 'center',
         gap: '0.5rem',
-        fontSize: '1.2rem',
+        fontSize: '1.6rem',
         opacity: s.opacity,
         marginBottom: '0.35rem',
       }}
@@ -61,7 +61,7 @@ function BioSection({ title, children }: { title: string; children: React.ReactN
       <div
         style={{
           color: 'var(--terminal-blue)',
-          fontSize: '0.8rem',
+          fontSize: '1.1rem',
           letterSpacing: '0.15em',
           marginBottom: '0.6rem',
           borderBottom: '1px solid var(--terminal-border)',
