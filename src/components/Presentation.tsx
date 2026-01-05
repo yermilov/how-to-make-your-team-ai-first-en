@@ -153,6 +153,7 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
         return;
       case 'reset':
         handleTimerReset();
+        setActivatedTools(new Set());
         return;
       default:
         handleNavCommand(command);

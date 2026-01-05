@@ -5,5 +5,6 @@ import { InstallSlide } from './InstallSlide';
 import { IntroSlide } from './IntroSlide';
 import { AgendaSlide } from './AgendaSlide';
 import { BillionDollarSlide } from './BillionDollarSlide';
+import { JuniorEngineerSlide } from './JuniorEngineerSlide';
 
-export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide];
+export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, JuniorEngineerSlide, InstallSlide, BillionDollarSlide];

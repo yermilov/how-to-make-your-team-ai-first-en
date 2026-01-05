@@ -1110,6 +1110,66 @@
   }
 }
 
+/* === JUNIOR ENGINEER SLIDE === */
+/* Mental model slide with two-column layout */
+
+.junior-engineer-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xl);
+  width: 100%;
+  padding-bottom: var(--space-xl);
+}
+
+.junior-engineer-content {
+  flex: 1;
+  max-width: 700px;
+  text-align: left;
+}
+
+.junior-engineer-content h2 {
+  text-align: left;
+}
+
+.junior-engineer-image-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.junior-engineer-image {
+  max-width: 420px;
+  max-height: calc(100vh - 320px);
+  object-fit: contain;
+  border-radius: var(--input-border-radius);
+  border: 1px solid var(--terminal-border);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .junior-engineer-slide {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .junior-engineer-content {
+    max-width: 100%;
+  }
+
+  .junior-engineer-image {
+    max-width: 100%;
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .junior-engineer-image {
+    max-height: 200px;
+  }
+}
+
 /* === POINTER TOOLTIPS === */
 /* Small tooltips that point to specific UI elements (timer, progress bar) */
 
