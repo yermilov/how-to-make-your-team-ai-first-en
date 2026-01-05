@@ -47,7 +47,16 @@ bun --env-file=.env.local .claude/skills/generate-image/scripts/generate.ts \
 
 ## Output
 
-Images are saved to `src/assets/generated/` with auto-generated timestamps if no filename specified.
+**Images** are saved to `public/` with auto-generated timestamps if no filename specified.
+
+**Prompts** are automatically logged to `src/prompts/` as JSON files containing:
+- `filename`: Output image filename
+- `prompt`: The prompt used to generate the image
+- `ratio`: Aspect ratio used
+- `timestamp`: Generation timestamp (ISO format)
+- `model`: Gemini model used
+
+This allows you to reference and regenerate images later using the same prompts.
 
 ## Troubleshooting
 

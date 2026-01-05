@@ -16,6 +16,7 @@ import { existsSync } from 'fs';
 // Configuration
 const GEMINI_MODEL = 'gemini-3-pro-image-preview';
 const OUTPUT_DIR = 'public';
+const PROMPTS_DIR = 'src/prompts';
 
 // Valid aspect ratios
 const VALID_RATIOS = ['16:9', '4:3', '1:1', '4:5'] as const;
@@ -132,6 +133,24 @@ async function generateImage(): Promise<void> {
     console.log(`\nImage saved successfully!`);
     console.log(`  Path: ${outputPath}`);
     console.log(`  Size: ${sizeKB} KB`);
+
+    // Save prompt metadata to log file (src/prompts/ - not deployed to web)
+    const promptLogPath = join(PROMPTS_DIR, `${outputFilename.replace('.png', '')}.json`);
+
+    if (!existsSync(PROMPTS_DIR)) {
+      await mkdir(PROMPTS_DIR, { recursive: true });
+    }
+
+    const promptMetadata = {
+      filename: outputFilename,
+      prompt: prompt,
+      ratio: ratio,
+      timestamp: new Date().toISOString(),
+      model: GEMINI_MODEL,
+    };
+
+    await writeFile(promptLogPath, JSON.stringify(promptMetadata, null, 2));
+    console.log(`  Prompt saved: ${promptLogPath}`);
   } catch (error) {
     console.error('Image generation failed:', error instanceof Error ? error.message : error);
     process.exit(1);
