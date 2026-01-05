@@ -199,18 +199,14 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
             <span className="pointer-tooltip-title">Таймер</span>
           </div>
           <p className="pointer-tooltip-text">
-            Відстежує тривалість презентації. Натисни <code>[start]</code> щоб почати.
+            допомагає відстежити тривалість презентації. натисни <code>[start]</code> або введи <code>start</code> щоб почати
           </p>
         </PointerTooltip>
       )}
       {currentSlide === 0 && !slideInteracted && (
         <PointerTooltip position="right">
-          <div className="pointer-tooltip-header">
-            <span className="pointer-tooltip-icon">📊</span>
-            <span className="pointer-tooltip-title">Context</span>
-          </div>
           <p className="pointer-tooltip-text">
-            Скільки "контексту" залишилось — жарт для користувачів Claude Code
+            прогрес по слайдам
           </p>
         </PointerTooltip>
       )}

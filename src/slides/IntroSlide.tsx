@@ -71,10 +71,7 @@ export const IntroSlide: SlideDefinition = {
       </div>
       <ul className="onboarding-tooltip-list">
         <li>
-          Введіть назву інструменту, щоб підсвітити
-        </li>
-        <li>
-          <code>claude</code>, <code>cursor</code>, <code>copilot</code>...
+          введіть назву інструменту, щоб підсвітити
         </li>
       </ul>
     </>
