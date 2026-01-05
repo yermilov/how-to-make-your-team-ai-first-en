@@ -182,16 +182,16 @@ export const JuniorEngineerSlide: SlideDefinition = {
             textTransform: 'uppercase',
             opacity: 0.8,
           }}>
-            # CORE METAPHOR
+            # КЛЮЧОВА МЕТАФОРА
           </div>
           <MentalModelPoint level="primary" delay={100}>
-            Treat Claude Code as a <em style={{ color: 'var(--terminal-orange)', fontStyle: 'normal', fontWeight: 600 }}>very talented junior engineer</em> hired in your team
+            Ставтеся до Claude Code як до <em style={{ color: 'var(--terminal-orange)', fontStyle: 'normal', fontWeight: 600 }}>дуже талановитого джуніора</em>, якого найняли у вашу команду
           </MentalModelPoint>
           <MentalModelPoint level="secondary" delay={200}>
-            it is <em style={{ color: 'var(--terminal-cyan)', fontStyle: 'normal' }}>(always)</em> their first day and you are their mentor
+            у них <em style={{ color: 'var(--terminal-cyan)', fontStyle: 'normal' }}>(завжди)</em> перший день, а ви — їхній ментор
           </MentalModelPoint>
           <MentalModelPoint level="secondary" delay={300}>
-            they have no industry experience
+            вони не мають досвіду в індустрії
           </MentalModelPoint>
         </div>
 
@@ -205,13 +205,13 @@ export const JuniorEngineerSlide: SlideDefinition = {
             textTransform: 'uppercase',
             opacity: 0.8,
           }}>
-            # INTERFACE
+            # ІНТЕРФЕЙС
           </div>
           <MentalModelPoint level="primary" delay={400}>
-            terminal interface = your chat application
+            термінальний інтерфейс = ваш чат-застосунок
           </MentalModelPoint>
           <MentalModelPoint level="secondary" delay={500}>
-            you can give them your tasks but need to help with <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>context</em> and <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>reviews</em>
+            ви можете давати їм завдання, але потрібно допомагати з <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>контекстом</em> та <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>рев'ю</em>
           </MentalModelPoint>
         </div>
 
@@ -222,9 +222,9 @@ export const JuniorEngineerSlide: SlideDefinition = {
           borderTop: '1px solid var(--terminal-border)',
         }}>
           <MentalModelPoint level="insight" delay={700}>
-            What you would write to human?
+            Що б ви написали людині?
             <KeyInsightArrow />
-            <span style={{ color: 'var(--terminal-orange)' }}>Write to Claude Code</span>
+            <span style={{ color: 'var(--terminal-orange)' }}>Пишіть Claude Code</span>
           </MentalModelPoint>
         </div>
       </div>
@@ -233,7 +233,7 @@ export const JuniorEngineerSlide: SlideDefinition = {
       <div className="junior-engineer-image-wrapper">
         <img
           src={comparisonImage}
-          alt="Chat interface connecting to terminal - same interaction pattern, different interface"
+          alt="Чат інтерфейс з'єднується з терміналом — однакова взаємодія, різний інтерфейс"
           className="junior-engineer-image"
           style={{
             animation: 'imageFloat 6s ease-in-out infinite, glowBreath 4s ease-in-out infinite',
@@ -246,7 +246,7 @@ export const JuniorEngineerSlide: SlideDefinition = {
           fontSize: '0.95rem',
           fontStyle: 'italic',
         }}>
-          same interaction <span style={{ color: 'var(--terminal-cyan)' }}>↔</span> different interface
+          однакова взаємодія <span style={{ color: 'var(--terminal-cyan)' }}>↔</span> різний інтерфейс
         </div>
       </div>
     </div>
