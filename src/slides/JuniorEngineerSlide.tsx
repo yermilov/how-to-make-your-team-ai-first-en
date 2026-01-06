@@ -1,87 +1,77 @@
 import { SlideDefinition } from '../types/slides';
 import comparisonImage from '/junior-engineer-comparison.png?url';
 
-type PointLevel = 'insight' | 'primary' | 'secondary';
+type Level = 'high' | 'medium' | 'low';
 
-const pointStyles = {
-  insight: {
-    prefix: '>>>',
-    prefixColor: 'var(--terminal-orange)',
-    textColor: 'var(--terminal-white)',
-    glow: '0 0 20px rgba(240, 136, 62, 0.4)',
-    background: 'linear-gradient(90deg, rgba(240, 136, 62, 0.08) 0%, transparent 100%)',
-    fontSize: '1.5rem',
-    fontWeight: 600,
-  },
-  primary: {
+const levelStyles = {
+  high: {
     prefix: '>>',
-    prefixColor: 'var(--terminal-green)',
-    textColor: 'var(--terminal-white)',
-    glow: 'none',
-    background: 'transparent',
-    fontSize: '1.35rem',
-    fontWeight: 400,
+    prefixColor: 'var(--terminal-orange)',
+    labelColor: 'var(--terminal-white)',
+    labelGlow: '0 0 20px rgba(240, 136, 62, 0.3)',
+    opacity: 1,
   },
-  secondary: {
-    prefix: '>',
+  medium: {
+    prefix: '> ',
     prefixColor: 'var(--terminal-blue)',
-    textColor: 'var(--terminal-white-dim)',
-    glow: 'none',
-    background: 'transparent',
-    fontSize: '1.25rem',
-    fontWeight: 400,
+    labelColor: 'var(--terminal-white)',
+    labelGlow: 'none',
+    opacity: 1,
+  },
+  low: {
+    prefix: '--',
+    prefixColor: 'var(--terminal-white-dim)',
+    labelColor: 'var(--terminal-white)',
+    labelGlow: 'none',
+    opacity: 0.85,
   },
 };
 
-function MentalModelPoint({
-  level,
-  children,
-  delay = 0,
-}: {
-  level: PointLevel;
-  children: React.ReactNode;
-  delay?: number;
-}) {
-  const s = pointStyles[level];
+function ContentItem({ level, children }: { level: Level; children: React.ReactNode }) {
+  const s = levelStyles[level];
 
   return (
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: '3rem 1fr',
-        alignItems: 'baseline',
-        gap: '0.75rem',
-        padding: level === 'insight' ? '0.75rem 1rem 0.75rem 0' : '0.4rem 0',
-        marginLeft: level === 'secondary' ? '1.5rem' : 0,
-        background: s.background,
-        borderRadius: level === 'insight' ? '4px' : 0,
-        animation: 'pointReveal 0.4s ease-out forwards',
-        animationDelay: `${delay}ms`,
-        opacity: 0,
+        gridTemplateColumns: '2.5rem 1fr',
+        alignItems: 'center',
+        gap: '0.5rem',
+        fontSize: '1.6rem',
+        opacity: s.opacity,
+        marginBottom: '0.35rem',
       }}
     >
+      <span style={{ color: s.prefixColor, fontWeight: 'bold' }}>{s.prefix}</span>
       <span
         style={{
-          color: s.prefixColor,
-          fontWeight: 'bold',
-          fontFamily: 'var(--font-mono)',
-          letterSpacing: '-0.05em',
-          textShadow: level === 'insight' ? s.glow : 'none',
-        }}
-      >
-        {s.prefix}
-      </span>
-      <span
-        style={{
-          color: s.textColor,
-          fontSize: s.fontSize,
-          fontWeight: s.fontWeight,
-          lineHeight: 1.5,
-          textShadow: s.glow,
+          color: s.labelColor,
+          textShadow: s.labelGlow,
         }}
       >
         {children}
       </span>
+    </div>
+  );
+}
+
+function ContentSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: '1.5rem' }}>
+      <div
+        style={{
+          color: 'var(--terminal-blue)',
+          fontSize: '1.1rem',
+          letterSpacing: '0.15em',
+          marginBottom: '0.6rem',
+          borderBottom: '1px solid var(--terminal-border)',
+          paddingBottom: '0.2rem',
+          textTransform: 'uppercase',
+        }}
+      >
+        {title}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>{children}</div>
     </div>
   );
 }
@@ -122,16 +112,6 @@ export const JuniorEngineerSlide: SlideDefinition = {
     <div className="junior-engineer-slide">
       {/* Inline keyframes */}
       <style>{`
-        @keyframes pointReveal {
-          from {
-            opacity: 0;
-            transform: translateX(-12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
         @keyframes arrowPulse {
           0%, 100% {
             opacity: 1;
@@ -169,64 +149,24 @@ export const JuniorEngineerSlide: SlideDefinition = {
           <span className="text-dim">$</span>{' '}
           <span className="text-green">think</span>{' '}
           <span className="text-orange">--model</span>{' '}
-          <span style={{ color: 'var(--terminal-cyan)' }}>junior-engineer</span>
+          <span className="text-cyan">junior-engineer</span>
         </h2>
 
-        {/* Section: Core Metaphor */}
-        <div style={{ marginBottom: '1.75rem' }}>
-          <div style={{
-            color: 'var(--terminal-blue)',
-            fontSize: '0.9rem',
-            letterSpacing: '0.2em',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase',
-            opacity: 0.8,
-          }}>
-            # КЛЮЧОВА МЕТАФОРА
-          </div>
-          <MentalModelPoint level="primary" delay={100}>
-            Ставтеся до Claude Code як до <em style={{ color: 'var(--terminal-orange)', fontStyle: 'normal', fontWeight: 600 }}>дуже талановитого джуніора</em>, якого найняли у вашу команду
-          </MentalModelPoint>
-          <MentalModelPoint level="secondary" delay={200}>
-            у них <em style={{ color: 'var(--terminal-cyan)', fontStyle: 'normal' }}>(завжди)</em> перший день, а ви — їхній ментор
-          </MentalModelPoint>
-          <MentalModelPoint level="secondary" delay={300}>
-            вони не мають досвіду в індустрії
-          </MentalModelPoint>
-        </div>
+        <ContentSection title="ключова метафора">
+          <ContentItem level="high">
+            Ставтеся до Claude Code як до <em style={{ color: 'var(--terminal-orange)', fontStyle: 'normal', fontWeight: 600 }}>дуже талановитого але хаотичного партнера</em>, а ви — їх ментор
+          </ContentItem>
+        </ContentSection>
 
-        {/* Section: Interface */}
-        <div style={{ marginBottom: '1.75rem' }}>
-          <div style={{
-            color: 'var(--terminal-blue)',
-            fontSize: '0.9rem',
-            letterSpacing: '0.2em',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase',
-            opacity: 0.8,
-          }}>
-            # ІНТЕРФЕЙС
-          </div>
-          <MentalModelPoint level="primary" delay={400}>
+        <ContentSection title="інтерфейс">
+          <ContentItem level="high">
             термінальний інтерфейс = ваш чат-застосунок
-          </MentalModelPoint>
-          <MentalModelPoint level="secondary" delay={500}>
-            ви можете давати їм завдання, але потрібно допомагати з <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>контекстом</em> та <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>рев'ю</em>
-          </MentalModelPoint>
-        </div>
+          </ContentItem>
+          <ContentItem level="medium">
+            ви можете давати їм завдання, але потрібно допомагати з <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>контекстом</em> та <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>не давати все поламати</em>
+          </ContentItem>
+        </ContentSection>
 
-        {/* Key insight */}
-        <div style={{
-          marginTop: '2rem',
-          paddingTop: '1.5rem',
-          borderTop: '1px solid var(--terminal-border)',
-        }}>
-          <MentalModelPoint level="insight" delay={700}>
-            Що б ви написали людині?
-            <KeyInsightArrow />
-            <span style={{ color: 'var(--terminal-orange)' }}>Пишіть Claude Code</span>
-          </MentalModelPoint>
-        </div>
       </div>
 
       {/* Image section */}
@@ -240,13 +180,14 @@ export const JuniorEngineerSlide: SlideDefinition = {
           }}
         />
         <div style={{
-          marginTop: '1rem',
+          marginTop: '1.25rem',
           textAlign: 'center',
-          color: 'var(--terminal-white-muted)',
-          fontSize: '0.95rem',
-          fontStyle: 'italic',
+          fontSize: '1.4rem',
+          color: 'var(--terminal-white)',
         }}>
-          однакова взаємодія <span style={{ color: 'var(--terminal-cyan)' }}>↔</span> різний інтерфейс
+          Що б ви написали людині?
+          <KeyInsightArrow />
+          <span style={{ color: 'var(--terminal-orange)', fontWeight: 600 }}>Пишіть Claude Code</span>
         </div>
       </div>
     </div>
