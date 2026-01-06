@@ -7,7 +7,12 @@ export const PeterMobileSlide: SlideDefinition = {
   content: (
     <div className="image-slide overlay-slide">
       <img src={billionDollarTweet} alt="Tweet: ok claude, make a billion dollar b2b todo app" />
-      <img src={peterMobileGif} alt="Peter Griffin reaction" className="overlay-gif" />
+      <img
+        src={peterMobileGif}
+        alt="Peter Griffin reaction"
+        className="overlay-gif"
+        style={{ transform: 'translate(-50%, -50%) scale(2)' }}
+      />
     </div>
   ),
 };

@@ -9,5 +9,6 @@ import { PeterMobileSlide } from './PeterMobileSlide';
 import { JuniorEngineerSlide } from './JuniorEngineerSlide';
 import { DisclaimerSlide } from './DisclaimerSlide';
 import { TheorySlide } from './TheorySlide';
+import { ContextSlide } from './ContextSlide';
 
-export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide];
+export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide];
