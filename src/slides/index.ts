@@ -10,5 +10,6 @@ import { JuniorEngineerSlide } from './JuniorEngineerSlide';
 import { DisclaimerSlide } from './DisclaimerSlide';
 import { TheorySlide } from './TheorySlide';
 import { ContextSlide } from './ContextSlide';
+import { ContextPrinciplesSlide } from './ContextPrinciplesSlide';
 
-export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide];
+export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide, ContextPrinciplesSlide];

@@ -170,14 +170,14 @@ export const ContextSlide: SlideDefinition = {
         />
         <ContextLayer
           index={3}
-          label="опис MCP серверів"
-          color="cyan"
+          label="зміст CLAUDE.md файлу"
+          color="purple"
           delay={0.3}
         />
         <ContextLayer
           index={4}
-          label="зміст CLAUDE.md файлу"
-          color="purple"
+          label="опис MCP серверів"
+          color="cyan"
           delay={0.4}
         />
         <ContextLayer
