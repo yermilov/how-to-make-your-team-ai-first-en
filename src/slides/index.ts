@@ -14,5 +14,7 @@ import { ContextPrinciplesSlide } from './ContextPrinciplesSlide';
 import { ClaudeMdSlide } from './ClaudeMdSlide';
 import { McpSlide } from './McpSlide';
 import { TheoryCompleteSlide } from './TheoryCompleteSlide';
+import { ResearchSlide } from './ResearchSlide';
+import { TechnicalSlide } from './TechnicalSlide';
 
-export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide, ContextPrinciplesSlide, ClaudeMdSlide, McpSlide, TheoryCompleteSlide];
+export const slides = [TitleSlide, BioSlide, ClaudeCodeSlide, IntroSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide, ContextPrinciplesSlide, ClaudeMdSlide, McpSlide, TheoryCompleteSlide, ResearchSlide, TechnicalSlide];
