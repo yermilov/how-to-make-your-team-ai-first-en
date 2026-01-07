@@ -115,6 +115,10 @@ export const TechnicalSlide: SlideDefinition = {
           <Code>TypeScript</Code>, <Code>React</Code>, максимально популярні і
           перевірені технології
         </TechnicalItem>
+
+        <TechnicalItem delay={0.3}>
+          краще працюйте в бранчах, комітьтеся після кожної сесії а робочий код почастіше мержіть в мейн
+        </TechnicalItem>
       </div>
     </>
   ),
