@@ -148,7 +148,7 @@ export const TryItSlide: SlideDefinition = {
         </TryItItem>
 
         <TryItItem delay={0.25}>
-          <Code>Yes, and auto-accept all edits</Code>
+          <Code>Yes, and auto-accept edits</Code>
         </TryItItem>
 
         <TryItItem delay={0.3}>
