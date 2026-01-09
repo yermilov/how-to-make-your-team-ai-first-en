@@ -11,6 +11,7 @@ import { DisclaimerSlide } from './DisclaimerSlide';
 import { TheorySlide } from './TheorySlide';
 import { ContextSlide } from './ContextSlide';
 import { ContextPrinciplesSlide } from './ContextPrinciplesSlide';
+import { ModelsSlide } from './ModelsSlide';
 import { ClaudeMdSlide } from './ClaudeMdSlide';
 import { McpSlide } from './McpSlide';
 import { TheoryCompleteSlide } from './TheoryCompleteSlide';
@@ -28,4 +29,4 @@ import { AIFirstRoleSlide } from './AIFirstRoleSlide';
 import { AIFirstToolsSlide } from './AIFirstToolsSlide';
 import { FinalSlide } from './FinalSlide';
 
-export const slides = [TitleSlide, BioSlide, IntroSlide, ClaudeCodeSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextSlide, ContextPrinciplesSlide, ClaudeMdSlide, McpSlide, TheoryCompleteSlide, ResearchSlide, TechnicalSlide, LaunchSlide, TryItSlide, VibeFlowSlide, ContextToolsSlide, CodeSlopSlide, LifeAfterCommitSlide, SavingsSlide, SkillsAuthoringSlide, AIFirstRoleSlide, AIFirstToolsSlide, FinalSlide];
+export const slides = [TitleSlide, BioSlide, IntroSlide, ClaudeCodeSlide, AgendaSlide, InstallSlide, BillionDollarSlide, PeterMobileSlide, JuniorEngineerSlide, DisclaimerSlide, TheorySlide, ContextPrinciplesSlide, ModelsSlide, ContextSlide, ClaudeMdSlide, McpSlide, TheoryCompleteSlide, ResearchSlide, TechnicalSlide, LaunchSlide, TryItSlide, VibeFlowSlide, ContextToolsSlide, CodeSlopSlide, LifeAfterCommitSlide, SavingsSlide, SkillsAuthoringSlide, AIFirstRoleSlide, AIFirstToolsSlide, FinalSlide];

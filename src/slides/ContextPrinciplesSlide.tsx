@@ -1,6 +1,6 @@
 import { SlideDefinition } from '../types/slides';
 
-type ColorKey = 'green' | 'orange' | 'cyan' | 'purple';
+type ColorKey = 'green' | 'orange' | 'cyan' | 'purple' | 'blue';
 
 const colorMap: Record<ColorKey, { border: string; glow: string; text: string }> = {
   green: {
@@ -22,6 +22,11 @@ const colorMap: Record<ColorKey, { border: string; glow: string; text: string }>
     border: 'var(--terminal-purple)',
     glow: 'var(--terminal-purple-glow)',
     text: 'var(--terminal-purple)',
+  },
+  blue: {
+    border: 'var(--terminal-blue)',
+    glow: 'var(--terminal-blue-glow)',
+    text: 'var(--terminal-blue)',
   },
 };
 
@@ -177,7 +182,7 @@ export const ContextPrinciplesSlide: SlideDefinition = {
         }}
       >
         <PrincipleDirective ruleNumber={1} color="green" delay={0.1}>
-          покласти в контекст інформацію (<Highlight color="green">слонів</Highlight>) яка максимально допоможе направити модель на <Highlight color="white">правильний шлях</Highlight>
+          покладіть в контекст інформацію (<Highlight color="green">слонів</Highlight>) яка максимально допоможе направити модель на <Highlight color="white">правильний шлях</Highlight>
         </PrincipleDirective>
 
         <PrincipleDirective ruleNumber={2} color="orange" delay={0.25}>
@@ -185,10 +190,14 @@ export const ContextPrinciplesSlide: SlideDefinition = {
         </PrincipleDirective>
 
         <PrincipleDirective ruleNumber={3} color="cyan" delay={0.4}>
-          старатися класти поменше інформації (<Highlight color="cyan">слонів</Highlight>) які <Highlight color="white">зіб'ють</Highlight> модель з правильного шляху
+          якщо контекст переповнюється, клод автоматично проганяє compaction, фактично сумаризуючи існуючий контекст в менший об'єм
         </PrincipleDirective>
 
-        <PrincipleDirective ruleNumber={4} color="purple" delay={0.55}>
+        <PrincipleDirective ruleNumber={4} color="blue" delay={0.55}>
+          старайтеся класти поменше інформації (<Highlight color="blue">слонів</Highlight>) які <Highlight color="white">зіб'ють</Highlight> модель з правильного шляху
+        </PrincipleDirective>
+
+        <PrincipleDirective ruleNumber={5} color="purple" delay={0.7}>
           <Highlight color="purple">одна задача</Highlight> за <Highlight color="purple">одну сесію</Highlight>
         </PrincipleDirective>
       </div>
