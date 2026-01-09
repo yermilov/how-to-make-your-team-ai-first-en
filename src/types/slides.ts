@@ -12,6 +12,7 @@ export interface SlideDefinition {
   notes?: string;
   background?: string;
   tooltip?: ReactNode;
+  maxRevealStages?: number;
 }
 
 export interface CodeBlockProps {

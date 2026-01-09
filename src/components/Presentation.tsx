@@ -194,7 +194,10 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
       />
       <SlideProgress current={currentSlide + 1} total={slides.length} />
       {currentSlide === 0 && !slideInteracted && <OnboardingTooltip />}
-      {activeSlide.tooltip && !slideInteracted && (
+      {activeSlide.tooltip &&
+        (activeSlide.maxRevealStages
+          ? revealStage < activeSlide.maxRevealStages
+          : !slideInteracted) && (
         <ContextTooltip>{activeSlide.tooltip}</ContextTooltip>
       )}
       {currentSlide === 0 && !slideInteracted && (

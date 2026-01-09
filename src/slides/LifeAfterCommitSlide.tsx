@@ -1,58 +1,8 @@
 import { SlideDefinition } from '../types/slides';
+import { Code, SlideItem, SlideLink } from '../components/SlideElements';
 
-// Inline code styling (cyan) - for technical terms
-function Code({ children }: { children: string }) {
-  return (
-    <code
-      style={{
-        background: 'rgba(118, 228, 247, 0.1)',
-        padding: '0.1rem 0.4rem',
-        borderRadius: '4px',
-        color: 'var(--terminal-cyan)',
-        fontFamily: 'var(--font-mono)',
-        fontSize: '0.95em',
-        fontWeight: 600,
-        border: '1px solid rgba(118, 228, 247, 0.3)',
-        textShadow: '0 0 8px var(--terminal-cyan-glow)',
-      }}
-    >
-      {children}
-    </code>
-  );
-}
-
-// External link styling (blue with dashed underline)
-function Link({ href, children }: { href: string; children: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        color: 'var(--terminal-blue)',
-        textDecoration: 'none',
-        borderBottom: '1px dashed var(--terminal-blue)',
-        transition: 'all 0.15s ease',
-        textShadow: '0 0 8px var(--terminal-blue-glow)',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.color = 'var(--terminal-cyan)';
-        e.currentTarget.style.borderBottomColor = 'var(--terminal-cyan)';
-        e.currentTarget.style.textShadow = '0 0 12px var(--terminal-cyan-glow)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.color = 'var(--terminal-blue)';
-        e.currentTarget.style.borderBottomColor = 'var(--terminal-blue)';
-        e.currentTarget.style.textShadow = '0 0 8px var(--terminal-blue-glow)';
-      }}
-    >
-      {children}
-    </a>
-  );
-}
-
-// Section header with colored prefix
-function SectionHeader({
+// Section header with animation for this slide
+function AnimatedSectionHeader({
   children,
   color,
   delay,
@@ -61,76 +11,17 @@ function SectionHeader({
   color: 'green' | 'purple' | 'blue';
   delay: number;
 }) {
-  const colors = {
-    green: {
-      main: 'var(--terminal-green)',
-      glow: 'var(--terminal-green-glow)',
-    },
-    purple: {
-      main: 'var(--terminal-purple)',
-      glow: 'var(--terminal-purple-glow)',
-    },
-    blue: {
-      main: 'var(--terminal-blue)',
-      glow: 'var(--terminal-blue-glow)',
-    },
-  };
-
   return (
     <div
+      className={`section-header section-header--compact section-header--${color}`}
       style={{
-        fontSize: '0.9rem',
-        fontWeight: 700,
-        color: colors[color].main,
-        textTransform: 'uppercase',
-        letterSpacing: '0.15em',
-        marginTop: '0.8rem',
-        marginBottom: '0.6rem',
-        textShadow: `0 0 10px ${colors[color].glow}`,
         opacity: 0,
-        animation: 'aftercareItemFadeIn 0.35s ease-out forwards',
+        animation: 'slideItemFadeIn 0.35s ease-out forwards',
         animationDelay: `${delay}s`,
       }}
     >
-      {'// '}{children}
-    </div>
-  );
-}
-
-// List item with > prefix and staggered animation
-function AfterItem({
-  children,
-  delay,
-}: {
-  children: React.ReactNode;
-  delay: number;
-}) {
-  return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1.5rem 1fr',
-        alignItems: 'start',
-        gap: '0.6rem',
-        fontSize: '1.1rem',
-        marginBottom: '0.9rem',
-        lineHeight: 1.55,
-        opacity: 0,
-        animation: 'aftercareItemFadeIn 0.35s ease-out forwards',
-        animationDelay: `${delay}s`,
-      }}
-    >
-      <span
-        style={{
-          color: 'var(--terminal-orange)',
-          fontWeight: 'bold',
-          textShadow: '0 0 10px var(--terminal-orange-glow)',
-          marginTop: '0.05rem',
-        }}
-      >
-        &gt;
-      </span>
-      <span style={{ color: 'var(--terminal-white)' }}>{children}</span>
+      {'// '}
+      {children}
     </div>
   );
 }
@@ -141,17 +32,6 @@ export const LifeAfterCommitSlide: SlideDefinition = {
     <>
       <style>
         {`
-          @keyframes aftercareItemFadeIn {
-            from {
-              opacity: 0;
-              transform: translateX(-12px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-
           @keyframes deployPulse {
             0%, 100% {
               text-shadow: 0 0 10px var(--terminal-green-glow);
@@ -182,51 +62,51 @@ export const LifeAfterCommitSlide: SlideDefinition = {
           margin: '0 auto',
         }}
       >
-        <SectionHeader color="green" delay={0.03}>
+        <AnimatedSectionHeader color="green" delay={0.03}>
           logging
-        </SectionHeader>
+        </AnimatedSectionHeader>
 
-        <AfterItem delay={0.08}>
+        <SlideItem size="compact" delay={0.08}>
           попросіть клод додавати багато логів і поясніть як отримати до них
           доступ (в <Code>CLAUDE.md</Code>)
-        </AfterItem>
+        </SlideItem>
 
-        <AfterItem delay={0.14}>
+        <SlideItem size="compact" delay={0.14}>
           якщо запускаєте локально — вкажіть де лежить лог файл
-        </AfterItem>
+        </SlideItem>
 
-        <AfterItem delay={0.20}>
+        <SlideItem size="compact" delay={0.20}>
           якщо в клауді — налаштуйте відправку логів в{' '}
-          <Link href="https://betterstack.com/">betterstack.com</Link> і
+          <SlideLink href="https://betterstack.com/">betterstack.com</SlideLink> і
           налаштуйте <Code>cli</Code> щоб мати до них доступ
-        </AfterItem>
+        </SlideItem>
 
-        <SectionHeader color="purple" delay={0.26}>
+        <AnimatedSectionHeader color="purple" delay={0.26}>
           web testing
-        </SectionHeader>
+        </AnimatedSectionHeader>
 
-        <AfterItem delay={0.32}>
+        <SlideItem size="compact" delay={0.32}>
           встановіть хром плагін{' '}
-          <Link href="https://claude.com/chrome">claude.com/chrome</Link> і
+          <SlideLink href="https://claude.com/chrome">claude.com/chrome</SlideLink> і
           налаштуйте його за допомогою <Code>/chrome</Code>
-        </AfterItem>
+        </SlideItem>
 
-        <AfterItem delay={0.38}>
+        <SlideItem size="compact" delay={0.38}>
           поясніть клод як "проклацати ваш сервіс" щоб він міг його потестувати
           (в <Code>CLAUDE.md</Code>)
-        </AfterItem>
+        </SlideItem>
 
-        <SectionHeader color="blue" delay={0.44}>
+        <AnimatedSectionHeader color="blue" delay={0.44}>
           mcp
-        </SectionHeader>
+        </AnimatedSectionHeader>
 
-        <AfterItem delay={0.50}>
-          <Link href="https://github.com/anthropics/anthropic-quickstarts/tree/main/mcp-chrome-devtools">
+        <SlideItem size="compact" delay={0.50}>
+          <SlideLink href="https://github.com/anthropics/anthropic-quickstarts/tree/main/mcp-chrome-devtools">
             chrome-devtools-mcp
-          </Link>{' '}
+          </SlideLink>{' '}
           — мабуть найбільш корисний <Code>MCP</Code> сервер зараз, але і він
           має свої обмеження
-        </AfterItem>
+        </SlideItem>
       </div>
     </>
   ),

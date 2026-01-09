@@ -1,93 +1,5 @@
 import { SlideDefinition } from '../types/slides';
-
-// Inline code styling (cyan) - for technical terms
-function Code({ children }: { children: string }) {
-  return (
-    <code
-      style={{
-        background: 'rgba(118, 228, 247, 0.1)',
-        padding: '0.1rem 0.4rem',
-        borderRadius: '4px',
-        color: 'var(--terminal-cyan)',
-        fontFamily: 'var(--font-mono)',
-        fontSize: '0.95em',
-        fontWeight: 600,
-        border: '1px solid rgba(118, 228, 247, 0.3)',
-        textShadow: '0 0 8px var(--terminal-cyan-glow)',
-      }}
-    >
-      {children}
-    </code>
-  );
-}
-
-// Quote styling (orange) - for English instructions
-function Quote({ children }: { children: string }) {
-  return (
-    <span
-      style={{
-        color: 'var(--terminal-orange)',
-        fontStyle: 'italic',
-        textShadow: '0 0 6px var(--terminal-orange-glow)',
-      }}
-    >
-      '{children}'
-    </span>
-  );
-}
-
-// Emphasis text (green) - for key phrases
-function Emphasis({ children }: { children: string }) {
-  return (
-    <span
-      style={{
-        color: 'var(--terminal-green)',
-        fontWeight: 600,
-        textShadow: '0 0 6px var(--terminal-green-glow)',
-      }}
-    >
-      {children}
-    </span>
-  );
-}
-
-// List item with > prefix and staggered animation
-function SlopItem({
-  children,
-  delay,
-}: {
-  children: React.ReactNode;
-  delay: number;
-}) {
-  return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1.5rem 1fr',
-        alignItems: 'start',
-        gap: '0.6rem',
-        fontSize: '1.15rem',
-        marginBottom: '1.1rem',
-        lineHeight: 1.55,
-        opacity: 0,
-        animation: 'slopItemFadeIn 0.35s ease-out forwards',
-        animationDelay: `${delay}s`,
-      }}
-    >
-      <span
-        style={{
-          color: 'var(--terminal-orange)',
-          fontWeight: 'bold',
-          textShadow: '0 0 10px var(--terminal-orange-glow)',
-          marginTop: '0.05rem',
-        }}
-      >
-        &gt;
-      </span>
-      <span style={{ color: 'var(--terminal-white)' }}>{children}</span>
-    </div>
-  );
-}
+import { Code, Quote, Emphasis, SlideItem } from '../components/SlideElements';
 
 export const CodeSlopSlide: SlideDefinition = {
   id: 'code-slop',
@@ -95,17 +7,6 @@ export const CodeSlopSlide: SlideDefinition = {
     <>
       <style>
         {`
-          @keyframes slopItemFadeIn {
-            from {
-              opacity: 0;
-              transform: translateX(-12px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-
           @keyframes noSlopPulse {
             0%, 100% {
               text-shadow: 0 0 10px var(--terminal-green-glow);
@@ -138,42 +39,57 @@ export const CodeSlopSlide: SlideDefinition = {
           margin: '0 auto',
         }}
       >
-        <SlopItem delay={0.05}>
+        <SlideItem size="compact" delay={0.05}>
           якщо робите зміни в web ui: додавайте{' '}
           <Quote>use frontend-design skill to create well-crafted ui/ux</Quote>
-        </SlopItem>
+        </SlideItem>
 
-        <SlopItem delay={0.12}>
+        <SlideItem size="compact" delay={0.12}>
           просіть його{' '}
           <Quote>take a look how similar functionality is already implemented in the repo and follow the same patterns</Quote>
-        </SlopItem>
+        </SlideItem>
 
-        <SlopItem delay={0.19}>
+        <SlideItem size="compact" delay={0.19}>
           якщо клод робить помилку виправляйте його так:{' '}
           <Quote>instead do X and remember this gotcha in CLAUDE.md</Quote>
-        </SlopItem>
+        </SlideItem>
 
-        <SlopItem delay={0.26}>
+        <SlideItem size="compact" delay={0.26}>
           просіть клод писати тести (<Code>TDD</Code> працює дуже добре)
-        </SlopItem>
+        </SlideItem>
 
-        <SlopItem delay={0.33}>
+        <SlideItem size="compact" delay={0.33}>
           <Emphasis>repeat after me:</Emphasis> напишіть стаб фічі вручну і
           попросіть клод закінчити
-        </SlopItem>
+        </SlideItem>
 
-        <SlopItem delay={0.40}>
-          для дуже складних задач додавайте{' '}
-          <Quote>please ultathink it</Quote>
-        </SlopItem>
+        <SlideItem size="compact" delay={0.40}>
+          <span style={{ textDecoration: 'line-through', opacity: 0.6 }}>
+            для дуже складних задач додавайте{' '}
+            <Quote>
+              please{' '}
+              <span style={{ color: '#ff6b6b' }}>u</span>
+              <span style={{ color: '#ffa94d' }}>l</span>
+              <span style={{ color: '#ffe066' }}>t</span>
+              <span style={{ color: '#8ce99a' }}>r</span>
+              <span style={{ color: '#74c0fc' }}>a</span>
+              <span style={{ color: '#b197fc' }}>t</span>
+              <span style={{ color: '#f783ac' }}>h</span>
+              <span style={{ color: '#ff6b6b' }}>i</span>
+              <span style={{ color: '#ffa94d' }}>n</span>
+              <span style={{ color: '#ffe066' }}>k</span>
+              {' '}it
+            </Quote>
+          </span>
+        </SlideItem>
 
-        <SlopItem delay={0.47}>
+        <SlideItem size="compact" delay={0.47}>
           просіть клод документувати все що він робить (наприклад в{' '}
           <Code>docs/</Code> папку) і потім реферінсіть її в наступних сесіях
-        </SlopItem>
+        </SlideItem>
       </div>
     </>
   ),
   notes:
-    'Code slop prevention tips - use frontend-design skill, follow repo patterns, teach Claude gotchas, write tests with TDD, write stubs manually, use ultathink, document everything',
+    'Code slop prevention tips - use frontend-design skill, follow repo patterns, teach Claude gotchas, write tests with TDD, write stubs manually, use ultrathink (crossed out), document everything',
 };

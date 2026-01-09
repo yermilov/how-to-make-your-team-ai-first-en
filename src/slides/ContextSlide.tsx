@@ -38,7 +38,7 @@ function ContextLayer({
   delay,
 }: {
   index: number;
-  label: string;
+  label: React.ReactNode;
   example?: string;
   color: ColorKey;
   delay: number;
@@ -156,7 +156,16 @@ export const ContextSlide: SlideDefinition = {
       >
         <ContextLayer
           index={1}
-          label="системний промпт"
+          label={
+            <a
+              href="https://github.com/marckrenn/claude-code-changelog/blob/main/cc-prompt.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'underline' }}
+            >
+              системний промпт
+            </a>
+          }
           example="ти інженер який веде діалог з іншим інженером..."
           color="orange"
           delay={0.1}

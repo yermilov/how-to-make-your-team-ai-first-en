@@ -1,69 +1,12 @@
 import { SlideDefinition } from '../types/slides';
+import { Code, SlideItem, SlideLink } from '../components/SlideElements';
 
 // Price styling (green) - money highlight
 function Price({ children }: { children: string }) {
   return (
-    <span
-      style={{
-        color: 'var(--terminal-green)',
-        fontWeight: 700,
-        textShadow: '0 0 8px var(--terminal-green-glow)',
-        letterSpacing: '0.02em',
-      }}
-    >
+    <span className="text-emphasis text-emphasis--green">
       {children}
     </span>
-  );
-}
-
-// Inline code styling (cyan) - for tool names
-function Tool({ children }: { children: string }) {
-  return (
-    <code
-      style={{
-        background: 'rgba(118, 228, 247, 0.1)',
-        padding: '0.1rem 0.4rem',
-        borderRadius: '4px',
-        color: 'var(--terminal-cyan)',
-        fontFamily: 'var(--font-mono)',
-        fontSize: '0.95em',
-        fontWeight: 600,
-        border: '1px solid rgba(118, 228, 247, 0.3)',
-        textShadow: '0 0 8px var(--terminal-cyan-glow)',
-      }}
-    >
-      {children}
-    </code>
-  );
-}
-
-// External link styling
-function Link({ href, children }: { href: string; children: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        color: 'var(--terminal-blue)',
-        textDecoration: 'none',
-        borderBottom: '1px dashed var(--terminal-blue)',
-        transition: 'all 0.15s ease',
-        textShadow: '0 0 8px var(--terminal-blue-glow)',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.color = 'var(--terminal-cyan)';
-        e.currentTarget.style.borderBottomColor = 'var(--terminal-cyan)';
-        e.currentTarget.style.textShadow = '0 0 12px var(--terminal-cyan-glow)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.color = 'var(--terminal-blue)';
-        e.currentTarget.style.borderBottomColor = 'var(--terminal-blue)';
-        e.currentTarget.style.textShadow = '0 0 8px var(--terminal-blue-glow)';
-      }}
-    >
-      {children}
-    </a>
   );
 }
 
@@ -76,8 +19,8 @@ function Dim({ children }: { children: string }) {
   );
 }
 
-// Section header with colored prefix
-function SectionHeader({
+// Section header with animation for this slide
+function AnimatedSectionHeader({
   children,
   color,
   delay,
@@ -86,77 +29,17 @@ function SectionHeader({
   color: 'green' | 'purple' | 'blue';
   delay: number;
 }) {
-  const colors = {
-    green: {
-      main: 'var(--terminal-green)',
-      glow: 'var(--terminal-green-glow)',
-    },
-    purple: {
-      main: 'var(--terminal-purple)',
-      glow: 'var(--terminal-purple-glow)',
-    },
-    blue: {
-      main: 'var(--terminal-blue)',
-      glow: 'var(--terminal-blue-glow)',
-    },
-  };
-
   return (
     <div
+      className={`section-header section-header--dense section-header--${color}`}
       style={{
-        fontSize: '0.85rem',
-        fontWeight: 700,
-        color: colors[color].main,
-        textTransform: 'uppercase',
-        letterSpacing: '0.15em',
-        marginTop: '1rem',
-        marginBottom: '0.5rem',
-        textShadow: `0 0 10px ${colors[color].glow}`,
         opacity: 0,
-        animation: 'savingsItemFadeIn 0.35s ease-out forwards',
+        animation: 'slideItemFadeIn 0.35s ease-out forwards',
         animationDelay: `${delay}s`,
       }}
     >
       {'// '}
       {children}
-    </div>
-  );
-}
-
-// List item with > prefix and staggered animation
-function SavingsItem({
-  children,
-  delay,
-}: {
-  children: React.ReactNode;
-  delay: number;
-}) {
-  return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1.2rem 1fr',
-        alignItems: 'start',
-        gap: '0.5rem',
-        fontSize: '1.05rem',
-        marginBottom: '0.7rem',
-        lineHeight: 1.5,
-        opacity: 0,
-        animation: 'savingsItemFadeIn 0.35s ease-out forwards',
-        animationDelay: `${delay}s`,
-      }}
-    >
-      <span
-        style={{
-          color: 'var(--terminal-orange)',
-          fontWeight: 'bold',
-          textShadow: '0 0 10px var(--terminal-orange-glow)',
-          marginTop: '0.05rem',
-        }}
-      >
-        &gt;
-      </span>
-      <span style={{ color: 'var(--terminal-white)' }}>{children}</span>
     </div>
   );
 }
@@ -167,17 +50,6 @@ export const SavingsSlide: SlideDefinition = {
     <>
       <style>
         {`
-          @keyframes savingsItemFadeIn {
-            from {
-              opacity: 0;
-              transform: translateX(-12px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-
           @keyframes coinPulse {
             0%, 100% {
               text-shadow: 0 0 10px var(--terminal-green-glow);
@@ -210,59 +82,59 @@ export const SavingsSlide: SlideDefinition = {
           margin: '0 auto',
         }}
       >
-        <SectionHeader color="green" delay={0.03}>
+        <AnimatedSectionHeader color="green" delay={0.03}>
           pricing tiers
-        </SectionHeader>
+        </AnimatedSectionHeader>
 
-        <SavingsItem delay={0.08}>
-          антропік видасть певну кількість токенів на 5 годин — і зупинить як
-          тільки використаєте
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.08}>
+          антропік видає певну кількість токенів на 5 годин — і зупинить вас як
+          тільки ви їх використаєте
+        </SlideItem>
 
-        <SavingsItem delay={0.14}>
-          з мого досвіду: <Price>$17</Price> — 1-1.5 год вайб-кодінгу,{' '}
-          <Price>$100</Price> — 3.5-4 год, <Price>$200</Price> — повні 5 годин
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.14}>
+          з мого досвіду: <Price>$17</Price> — 1-1.5 години вайб-кодінгу,{' '}
+          <Price>$100</Price> — 3-4 години, <Price>$200</Price> — повні 5 годин
+        </SlideItem>
 
-        <SavingsItem delay={0.20}>
-          <Price>$100</Price> — sweet spot, але гроші немаленькі; якщо можете —{' '}
+        <SlideItem size="dense" delay={0.20}>
+          <Price>$100</Price> — sweet spot, але гроші немаленькі; якщо ви багаті — купіть{' '}
           <Price>$200</Price> або <Price>$100</Price> + один-два на{' '}
           <Price>$17</Price>
-        </SavingsItem>
+        </SlideItem>
 
-        <SectionHeader color="purple" delay={0.26}>
-          codex cli
-        </SectionHeader>
+        <AnimatedSectionHeader color="purple" delay={0.26}>
+          якщо ви не багачі
+        </AnimatedSectionHeader>
 
-        <SavingsItem delay={0.32}>
-          варіант: <Price>$20</Price> підписка на ChatGPT + встановіть{' '}
-          <Tool>codex cli</Tool>
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.32}>
+          оформіть <Price>$20</Price> підписку на ChatGPT (можливо вона у вас вже є) і встановіть{' '}
+          <Code>codex cli</Code>
+        </SlideItem>
 
-        <SavingsItem delay={0.38}>
-          <Tool>codex</Tool> — клон клод кода: погано в довгих сесіях, але добре
-          ван-шотить майже робочі рішення
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.38}>
+          <Code>codex</Code> — клон клод кода: він погано працює в довгих сесіях, але добре
+          ван-шотить майже робочі стаби
+        </SlideItem>
 
-        <SavingsItem delay={0.44}>
-          стратегія: ван-шот в <Tool>codex</Tool> → переходьте в{' '}
-          <Tool>claude code</Tool> і попередьте що стаб вже готовий
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.44}>
+          стратегія: ван-шот в <Code>codex</Code> → переходьте в{' '}
+          <Code>claude code</Code> і попередьте його що стаб вже готовий
+        </SlideItem>
 
-        <SectionHeader color="blue" delay={0.50}>
-          alternatives
-        </SectionHeader>
+        <AnimatedSectionHeader color="blue" delay={0.50}>
+          ще дешевші варіанти
+        </AnimatedSectionHeader>
 
-        <SavingsItem delay={0.56}>
-          <Dim>перевірено</Dim> тріал <Tool>Cursor</Tool> — в комбінації IDE або{' '}
-          <Tool>cursor-cli</Tool>
-        </SavingsItem>
+        <SlideItem size="dense" delay={0.56}>
+          <Dim>перевірено</Dim> тріал <Code>Cursor</Code> — IDE або{' '}
+          <Code>cursor-cli</Code>
+        </SlideItem>
 
-        <SavingsItem delay={0.62}>
+        <SlideItem size="dense" delay={0.62}>
           <Dim>не перевірено</Dim>{' '}
-          <Link href="https://ampcode.com/free">ampcode.com/free</Link> —
+          <SlideLink href="https://ampcode.com/free">ampcode.com/free</SlideLink> —
           безкоштовний клон з рейт лімітом і рекламою (не жарт)
-        </SavingsItem>
+        </SlideItem>
       </div>
     </>
   ),

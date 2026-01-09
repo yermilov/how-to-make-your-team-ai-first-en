@@ -37,7 +37,7 @@ function BioItem({ level, children }: { level: Level; children: React.ReactNode 
         gridTemplateColumns: '2.5rem 1fr',
         alignItems: 'center',
         gap: '0.5rem',
-        fontSize: '1.6rem',
+        fontSize: 'var(--slide-text-normal)',
         opacity: s.opacity,
         marginBottom: '0.35rem',
       }}
@@ -59,14 +59,10 @@ function BioSection({ title, children }: { title: string; children: React.ReactN
   return (
     <div style={{ marginBottom: '1.5rem' }}>
       <div
+        className="section-header section-header--blue"
         style={{
-          color: 'var(--terminal-blue)',
-          fontSize: '1.1rem',
-          letterSpacing: '0.15em',
-          marginBottom: '0.6rem',
           borderBottom: '1px solid var(--terminal-border)',
           paddingBottom: '0.2rem',
-          textTransform: 'uppercase',
         }}
       >
         {title}
@@ -86,10 +82,12 @@ export const BioSlide: SlideDefinition = {
         </h2>
 
         <div style={{ textAlign: 'left' }}>
-          <BioSection title="8 років в греммерлі / суперхьюмані">
-            <BioItem level="high">зараз займаюся АІ-кодінг агентами</BioItem>
-            <BioItem level="high">не написав вручну жодного рядка коду з травня минулого року</BioItem>
+          <BioSection title="8+ років в греммерлі / суперхьюмані">
+            <BioItem level="high">0 -&gt; 1 проєкти</BioItem>
+            <BioItem level="high">в 2025 році - впровадження АІ-кодінг агентів в компанії</BioItem>
+            <BioItem level="high">не написав вручну жодного рядка коду за останніх вісім місяців</BioItem>
             <BioItem level="medium">до цього: техлідив платформену організацію</BioItem>
+            <BioItem level="medium">до цього: техлідив розробку фічевих фреймворків</BioItem>
             <BioItem level="medium">до цього: лідив продуктові фічі</BioItem>
             <BioItem level="low">до цього: працював на бекенді</BioItem>
           </BioSection>
@@ -101,11 +99,7 @@ export const BioSlide: SlideDefinition = {
                 href="https://www.linkedin.com/in/yarik-yermilov/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  color: 'var(--terminal-blue)',
-                  textDecoration: 'none',
-                  borderBottom: '1px dashed var(--terminal-blue)',
-                }}
+                className="slide-link"
               >
                 LinkedIn
               </a>

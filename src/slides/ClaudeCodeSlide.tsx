@@ -2,6 +2,7 @@ import { SlideDefinition } from '../types/slides';
 
 export const ClaudeCodeSlide: SlideDefinition = {
   id: 'claude-code',
+  maxRevealStages: 2,
   tooltip: (
     <>
       <div className="onboarding-tooltip-header">

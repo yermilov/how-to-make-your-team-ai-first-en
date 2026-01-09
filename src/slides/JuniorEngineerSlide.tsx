@@ -37,7 +37,7 @@ function ContentItem({ level, children }: { level: Level; children: React.ReactN
         gridTemplateColumns: '2.5rem 1fr',
         alignItems: 'center',
         gap: '0.5rem',
-        fontSize: '1.6rem',
+        fontSize: 'var(--slide-text-normal)',
         opacity: s.opacity,
         marginBottom: '0.35rem',
       }}
@@ -59,14 +59,10 @@ function ContentSection({ title, children }: { title: string; children: React.Re
   return (
     <div style={{ marginBottom: '1.5rem' }}>
       <div
+        className="section-header section-header--blue"
         style={{
-          color: 'var(--terminal-blue)',
-          fontSize: '1.1rem',
-          letterSpacing: '0.15em',
-          marginBottom: '0.6rem',
           borderBottom: '1px solid var(--terminal-border)',
           paddingBottom: '0.2rem',
-          textTransform: 'uppercase',
         }}
       >
         {title}
@@ -149,12 +145,12 @@ export const JuniorEngineerSlide: SlideDefinition = {
           <span className="text-dim">$</span>{' '}
           <span className="text-green">think</span>{' '}
           <span className="text-orange">--model</span>{' '}
-          <span className="text-cyan">junior-engineer</span>
+          <span className="text-cyan">lawful-chaotic-engineer</span>
         </h2>
 
         <ContentSection title="ключова метафора">
           <ContentItem level="high">
-            Ставтеся до Claude Code як до <em style={{ color: 'var(--terminal-orange)', fontStyle: 'normal', fontWeight: 600 }}>дуже талановитого але хаотичного партнера</em>, а ви — їх ментор
+            Ставтеся до Claude Code як до <em className="text-emphasis text-emphasis--orange">дуже талановитого але хаотичного партнера</em>, а ви — їх ментор
           </ContentItem>
         </ContentSection>
 
@@ -163,7 +159,7 @@ export const JuniorEngineerSlide: SlideDefinition = {
             термінальний інтерфейс = ваш чат-застосунок
           </ContentItem>
           <ContentItem level="medium">
-            ви можете давати їм завдання, але потрібно допомагати з <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>контекстом</em> та <em style={{ color: 'var(--terminal-green)', fontStyle: 'normal' }}>не давати все поламати</em>
+            ви можете давати їм завдання, але потрібно допомагати з <em className="text-emphasis text-emphasis--green">контекстом</em> та <em className="text-emphasis text-emphasis--green">не давати все поламати</em>
           </ContentItem>
         </ContentSection>
 
@@ -182,12 +178,12 @@ export const JuniorEngineerSlide: SlideDefinition = {
         <div style={{
           marginTop: '1.25rem',
           textAlign: 'center',
-          fontSize: '1.4rem',
+          fontSize: 'var(--slide-text-normal)',
           color: 'var(--terminal-white)',
         }}>
           Що б ви написали людині?
           <KeyInsightArrow />
-          <span style={{ color: 'var(--terminal-orange)', fontWeight: 600 }}>Пишіть Claude Code</span>
+          <span className="text-emphasis text-emphasis--orange">Пишіть Claude Code</span>
         </div>
       </div>
     </div>
