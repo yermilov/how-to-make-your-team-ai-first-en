@@ -75,13 +75,13 @@ export const SkillsAuthoringSlide: SlideDefinition = {
 
         <SlideItem delay={0.20}>
           як завжди, запускаємо пусту сессію, план мод, і погнали:{' '}
-          <Prompt>please read {'{docs-url}'} and create a skill that will ...</Prompt>
+          <Prompt>please read https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices and create a skill that will ...</Prompt>
         </SlideItem>
 
         <SlideItem delay={0.26}>
           або так: один раз{' '}
           <Prompt>
-            please read {'{docs-url}'} and create a skill that will explain how to
+            please read https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices and create a skill that will explain how to
             create a well crafted skill, name it skills-authorship
           </Prompt>
         </SlideItem>
@@ -101,12 +101,6 @@ export const SkillsAuthoringSlide: SlideDefinition = {
         <SlideItem delay={0.44}>
           пошук в логах, дебагінг проблем, перформенс оптимізації, генерація
           картинок, написання документації, ...
-        </SlideItem>
-
-        <SlideItem delay={0.50} size="compact">
-          <SlideLink href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">
-            platform.claude.com/docs/.../agent-skills/best-practices
-          </SlideLink>
         </SlideItem>
       </div>
     </>
