@@ -1,5 +1,6 @@
 import { SlideDefinition } from '../types/slides';
-import { Code, SlideItem, Emphasis } from '../components/SlideElements';
+import { SlideItem, Emphasis } from '../components/SlideElements';
+import aiFirstRoleBg from '/ai-first-role.png?url';
 
 // Section header with animation
 function AnimatedSectionHeader({
@@ -29,21 +30,20 @@ function AnimatedSectionHeader({
 export const AIFirstRoleSlide: SlideDefinition = {
   id: 'ai-first-role',
   content: (
-    <>
-      <h2 style={{ marginBottom: '2rem' }}>
-        <span className="text-dim">$</span>{' '}
-        <span className="text-green">mindset</span>{' '}
-        <span className="text-orange">--ai-first</span>
-      </h2>
+    <div className="bg-image-slide">
+      <img
+        src={aiFirstRoleBg}
+        alt="AI-First mindset transformation"
+        className="bg-image-slide__background"
+      />
 
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '1000px',
-          width: '100%',
-          margin: '0 auto',
-        }}
-      >
+      <div className="bg-image-slide__content">
+        <h2 style={{ marginBottom: '2rem' }}>
+          <span className="text-dim">$</span>{' '}
+          <span className="text-green">mindset</span>{' '}
+          <span className="text-orange">--ai-first</span>
+        </h2>
+
         <AnimatedSectionHeader color="green" delay={0.03}>
           ваша роль
         </AnimatedSectionHeader>
@@ -65,33 +65,8 @@ export const AIFirstRoleSlide: SlideDefinition = {
           працювати над задачами які ви йому даєте, а вам було максимально
           комфортно задачі давати і контролювати їх виконання
         </SlideItem>
-
-        <AnimatedSectionHeader color="purple" delay={0.26}>
-          як працювати
-        </AnimatedSectionHeader>
-
-        <SlideItem delay={0.32}>
-          використовуйте <Emphasis color="green">GitHub issues</Emphasis> для
-          постановки задач замість промптів, просто пишіть{' '}
-          <Code variant="orange">please work on github issue #...</Code>,
-          звичайно ж зробіть скіл
-        </SlideItem>
-
-        <SlideItem delay={0.38}>
-          зберігайте всю документацію, яка може змінюватися з часом, в
-          спеціальній папці всередині вашої монорепи, звичайно ж зробіть скіл
-        </SlideItem>
-
-        <SlideItem delay={0.44}>
-          зберігайте більш фундаментальні незмінні знання в скілах
-        </SlideItem>
-
-        <SlideItem delay={0.50}>
-          найбільш фундаментальні принципи роботи (фактично ваш контракт з
-          клодом) опишіть в <Code>CLAUDE.md</Code>
-        </SlideItem>
       </div>
-    </>
+    </div>
   ),
   notes:
     'AI-First Engineering mindset - think of yourself as product owner/tech lead/architect, hire Claude Code instead of engineers, create comfortable conditions for Claude to work',

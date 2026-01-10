@@ -1,24 +1,24 @@
 import { SlideDefinition } from '../types/slides';
 import { Code, Quote, SlideItem, SlideLink } from '../components/SlideElements';
+import contextToolsGathering from '/context-tools-gathering.png?url';
 
 export const ContextToolsSlide: SlideDefinition = {
   id: 'context-tools',
   content: (
-    <>
-      <h2 style={{ marginBottom: '2rem' }}>
-        <span className="text-dim">$</span>{' '}
-        <span className="text-green">context</span>{' '}
-        <span className="text-orange">--tools</span>
-      </h2>
+    <div className="bg-image-slide">
+      <img
+        src={contextToolsGathering}
+        alt="Context gathering sources - voice, PDFs, research, diagrams"
+        className="bg-image-slide__background"
+      />
 
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '1000px',
-          width: '100%',
-          margin: '0 auto',
-        }}
-      >
+      <div className="bg-image-slide__content">
+        <h2 style={{ marginBottom: '2rem' }}>
+          <span className="text-dim">$</span>{' '}
+          <span className="text-green">context</span>{' '}
+          <span className="text-orange">--tools</span>
+        </h2>
+
         <SlideItem delay={0.05}>
           опишіть свою задачу максимально детально наскільки тільки можете (або
           використовуйте <SlideLink href="https://handy.computer/">handy.computer</SlideLink>{' '}
@@ -43,11 +43,11 @@ export const ContextToolsSlide: SlideDefinition = {
         </SlideItem>
 
         <SlideItem delay={0.45}>
-          намалюйте схему чи дизайн на листочку, дошці чи у цифровому вигляді,
+          намалюйте схему чи дізайн на листочку, дошці чи у цифровому вигляді,
           сфоткайте або зробіть скріншот і додайте до Claude Code
         </SlideItem>
       </div>
-    </>
+    </div>
   ),
   notes:
     'Context building tools - describe task in detail, use Deep Research, add articles/PDFs, browse open-source repos, add diagrams/screenshots',

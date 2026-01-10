@@ -1,5 +1,7 @@
 import { SlideDefinition } from '../types/slides';
 import { Code, SlideItem, SlideLink } from '../components/SlideElements';
+import budgetPricingTiers from '/budget-pricing-tiers.png?url';
+import budgetWorkflowStrategy from '/budget-workflow-strategy.png?url';
 
 // Price styling (green) - money highlight
 function Price({ children }: { children: string }) {
@@ -47,21 +49,20 @@ function AnimatedSectionHeader({
 export const SavingsSlide: SlideDefinition = {
   id: 'savings',
   content: (
-    <>
-      <h2 style={{ marginBottom: '2rem' }}>
-        <span className="text-dim">$</span>{' '}
-        <span className="text-green">budget</span>{' '}
-        <span className="text-orange">--optimize</span>
-      </h2>
+    <div className="mcp-slide">
+      <img
+        src={budgetPricingTiers}
+        alt="Pricing tiers visualization"
+        className="mcp-slide-image-left"
+      />
 
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '1000px',
-          width: '100%',
-          margin: '0 auto',
-        }}
-      >
+      <div className="mcp-slide-content">
+        <h2 style={{ marginBottom: '1.5rem' }}>
+          <span className="text-dim">$</span>{' '}
+          <span className="text-green">budget</span>{' '}
+          <span className="text-orange">--optimize</span>
+        </h2>
+
         <AnimatedSectionHeader color="green" delay={0.03}>
           pricing tiers
         </AnimatedSectionHeader>
@@ -72,14 +73,13 @@ export const SavingsSlide: SlideDefinition = {
         </SlideItem>
 
         <SlideItem delay={0.14}>
-          з мого досвіду: <Price>$17</Price> — 1-1.5 години вайб-кодінгу,{' '}
+          з мого досвіду: <Price>$17</Price> — 1-1.5 години,{' '}
           <Price>$100</Price> — 3-4 години, <Price>$200</Price> — повні 5 годин
         </SlideItem>
 
         <SlideItem delay={0.20}>
-          <Price>$100</Price> — sweet spot, але гроші немаленькі; якщо ви багаті — купіть{' '}
-          <Price>$200</Price> або <Price>$100</Price> + один-два на{' '}
-          <Price>$17</Price>
+          <Price>$100</Price> — sweet spot; якщо ви багаті — купіть{' '}
+          <Price>$200</Price>
         </SlideItem>
 
         <AnimatedSectionHeader color="purple" delay={0.26}>
@@ -87,18 +87,18 @@ export const SavingsSlide: SlideDefinition = {
         </AnimatedSectionHeader>
 
         <SlideItem delay={0.32}>
-          оформіть <Price>$20</Price> підписку на ChatGPT (можливо вона у вас вже є) і встановіть{' '}
+          оформіть <Price>$20</Price> підписку на ChatGPT і встановіть{' '}
           <Code>codex cli</Code>
         </SlideItem>
 
         <SlideItem delay={0.38}>
-          <Code>codex</Code> — клон клод кода: він погано працює в довгих сесіях, але добре
-          ван-шотить майже робочі стаби
+          <Code>codex</Code> — клон клод кода: погано працює в довгих сесіях, але добре
+          ван-шотить
         </SlideItem>
 
         <SlideItem delay={0.44}>
-          стратегія: ван-шот в <Code>codex</Code> → переходьте в{' '}
-          <Code>claude code</Code> і попередьте його що стаб вже готовий
+          стратегія: ван-шот в <Code>codex</Code> → потім в{' '}
+          <Code>claude code</Code>
         </SlideItem>
 
         <AnimatedSectionHeader color="blue" delay={0.50}>
@@ -113,10 +113,16 @@ export const SavingsSlide: SlideDefinition = {
         <SlideItem delay={0.62}>
           <Dim>не перевірено</Dim>{' '}
           <SlideLink href="https://ampcode.com/free">ampcode.com/free</SlideLink> —
-          безкоштовний клон з рейт лімітом і рекламою (не жарт)
+          безкоштовний клон
         </SlideItem>
       </div>
-    </>
+
+      <img
+        src={budgetWorkflowStrategy}
+        alt="Budget workflow strategy"
+        className="mcp-slide-image-right"
+      />
+    </div>
   ),
   notes:
     'Budget optimization - pricing tiers ($17/1-1.5h, $100/3.5-4h sweet spot, $200/5h full), Codex CLI alternative with one-shot strategy, Cursor trial, Ampcode free option',

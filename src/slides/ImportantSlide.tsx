@@ -1,22 +1,22 @@
 import { SlideDefinition } from '../types/slides';
 import { Emphasis, SlideItem } from '../components/SlideElements';
+import importantImage from '/important-slide.png?url';
 
 export const ImportantSlide: SlideDefinition = {
   id: 'important',
   content: (
-    <>
-      <h2 style={{ marginBottom: '2rem' }}>
-        <span className="text-orange">ВАЖЛИВО!</span>
-      </h2>
+    <div className="bg-image-slide">
+      <img
+        src={importantImage}
+        alt="Important balance between human expertise and AI"
+        className="bg-image-slide__background"
+      />
 
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '1000px',
-          width: '100%',
-          margin: '0 auto',
-        }}
-      >
+      <div className="bg-image-slide__content">
+        <h2 style={{ marginBottom: '1.5rem' }}>
+          <span className="text-orange">ВАЖЛИВО!</span>
+        </h2>
+
         <SlideItem delay={0.05}>
           якщо ви розумієтеся в якійсь темі, то клод майже напевне розбирається
           в ній <Emphasis color="orange">гірше</Emphasis>
@@ -62,7 +62,7 @@ export const ImportantSlide: SlideDefinition = {
           нічого не розумієте, тут ви можете виграти від годин до тижнів
         </SlideItem>
       </div>
-    </>
+    </div>
   ),
   notes:
     'Important reality check - Claude is not better than you in your domain, value is in parallelization and delegation, watching Claude work is often counterproductive, exception is unfamiliar technologies',
