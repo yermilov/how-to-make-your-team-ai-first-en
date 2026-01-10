@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlideDefinition } from '../types/slides';
-import { SlideItem, SlideLink, Emphasis } from '../components/SlideElements';
+import { SlideItem, Emphasis } from '../components/SlideElements';
 
 // Section header with animation for this slide
 function AnimatedSectionHeader({
