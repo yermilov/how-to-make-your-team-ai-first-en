@@ -1,5 +1,5 @@
 import { SlideDefinition } from '../types/slides';
-import { SlideItem, Emphasis } from '../components/SlideElements';
+import { SlideItem, Emphasis, SlideLink } from '../components/SlideElements';
 import linkedinQr from '/linkedin-qr.jpeg?url';
 
 export const FinalSlide: SlideDefinition = {
@@ -38,7 +38,12 @@ export const FinalSlide: SlideDefinition = {
 
           <SlideItem delay={0.10}>
             зареєструйтеся в твіттері (хоч ілон маск і лох), слідкуйте за
-            важливими АІ-інженерами
+            важливими АІ-інженерами:{' '}
+            <SlideLink href="https://x.com/bcherny">@bcherny</SlideLink>,{' '}
+            <SlideLink href="https://x.com/trq212">@trq212</SlideLink>,{' '}
+            <SlideLink href="https://x.com/ClaudeCodeLog">@ClaudeCodeLog</SlideLink>,{' '}
+            <SlideLink href="https://x.com/mitchellh">@mitchellh</SlideLink>,{' '}
+            <SlideLink href="https://x.com/steipete">@steipete</SlideLink>
           </SlideItem>
 
           <SlideItem delay={0.15}>
