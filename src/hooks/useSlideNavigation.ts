@@ -105,6 +105,8 @@ export function useSlideNavigation(
           return;
         case 'reveal':
         case 'r':
+        case 'move':
+        case 'm':
           setRevealStage(prev => prev + 1);
           return;
         case 'next':

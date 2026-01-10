@@ -85,7 +85,6 @@ export const BioSlide: SlideDefinition = {
           <BioSection title="8+ років в греммерлі / суперхьюмані">
             <BioItem level="high">0 -&gt; 1 проєкти</BioItem>
             <BioItem level="high">в 2025 році - впровадження АІ-кодінг агентів в компанії</BioItem>
-            <BioItem level="high">не написав вручну жодного рядка коду за останніх вісім місяців</BioItem>
             <BioItem level="medium">до цього: техлідив платформену організацію</BioItem>
             <BioItem level="medium">до цього: техлідив розробку фічевих фреймворків</BioItem>
             <BioItem level="medium">до цього: лідив продуктові фічі</BioItem>
