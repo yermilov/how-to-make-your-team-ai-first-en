@@ -194,7 +194,7 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
       />
       {/* Show context progress starting from context-principles slide */}
       {currentSlide >= slides.findIndex(s => s.id === 'context-principles') && (
-        <SlideProgress current={currentSlide + 1} total={slides.length} />
+        <SlideProgress current={currentSlide + 1} total={slides.length} slideId={activeSlide.id} />
       )}
       {currentSlide === 0 && !slideInteracted && <OnboardingTooltip />}
       {activeSlide.tooltip &&

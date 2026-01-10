@@ -156,25 +156,14 @@ export const ContextSlide: SlideDefinition = {
       >
         <ContextLayer
           index={1}
-          label={
-            <a
-              href="https://github.com/marckrenn/claude-code-changelog/blob/main/cc-prompt.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'inherit', textDecoration: 'underline' }}
-            >
-              системний промпт
-            </a>
-          }
-          example="ти інженер який веде діалог з іншим інженером..."
+          label="системний промпт і опис тулів"
           color="orange"
           delay={0.1}
         />
         <ContextLayer
           index={2}
-          label="опис тулів"
-          example="для того щоб відредагувати файл..."
-          color="green"
+          label="опис MCP серверів"
+          color="cyan"
           delay={0.2}
         />
         <ContextLayer
@@ -185,15 +174,9 @@ export const ContextSlide: SlideDefinition = {
         />
         <ContextLayer
           index={4}
-          label="опис MCP серверів"
-          color="cyan"
-          delay={0.4}
-        />
-        <ContextLayer
-          index={5}
           label="весь діалог з початку сесії"
           color="blue"
-          delay={0.5}
+          delay={0.4}
         />
       </div>
     </>
