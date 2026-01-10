@@ -50,7 +50,7 @@ export const AIFirstToolsSlide: SlideDefinition = {
       <h2 style={{ marginBottom: '2rem' }}>
         <span className="text-dim">$</span>{' '}
         <span className="text-green">mindset</span>{' '}
-        <span className="text-orange">--tools</span>
+        <span className="text-orange">--ai-first</span>
       </h2>
 
       <div

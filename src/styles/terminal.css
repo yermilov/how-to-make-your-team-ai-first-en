@@ -2200,3 +2200,47 @@
     padding: 0;
   }
 }
+
+/* === SLIDE WITH BLURRED BACKGROUND === */
+.bg-image-slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--space-xl);
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.bg-image-slide__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+  z-index: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.bg-image-slide__content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding: var(--space-xl);
+  background: rgba(10, 14, 20, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--input-border-radius);
+  border: 1px solid var(--terminal-border);
+  text-align: left;
+}

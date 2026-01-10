@@ -6,10 +6,8 @@ export const FinalSlide: SlideDefinition = {
   id: 'final',
   content: (
     <>
-      <h2 style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <span className="text-dim">$</span>{' '}
-        <span className="text-green">exit</span>{' '}
-        <span className="text-orange">--farewell</span>
+      <h2 style={{ marginBottom: '2rem', textAlign: 'center', color: 'var(--terminal-blue)' }}>
+        compacting the conversation...
       </h2>
 
       <div
@@ -73,8 +71,8 @@ export const FinalSlide: SlideDefinition = {
           alt="LinkedIn QR code - Yarik Yermilov"
           style={{
             flexShrink: 0,
-            maxWidth: '400px',
-            maxHeight: 'calc(100vh - 280px)',
+            maxWidth: '600px',
+            maxHeight: 'calc(100vh - 180px)',
             objectFit: 'contain',
             borderRadius: 'var(--input-border-radius)',
             border: '2px solid var(--terminal-border)',

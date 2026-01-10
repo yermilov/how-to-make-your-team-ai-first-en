@@ -1,5 +1,6 @@
 import { SlideDefinition } from '../types/slides';
 import { Code, Quote, SlideItem } from '../components/SlideElements';
+import claudeMdVsReadme from '/claude-md-vs-readme.png?url';
 
 // Command styling (orange code)
 function Command({ children }: { children: string }) {
@@ -9,21 +10,20 @@ function Command({ children }: { children: string }) {
 export const ClaudeMdSlide: SlideDefinition = {
   id: 'claude-md',
   content: (
-    <>
-      <h2 style={{ marginBottom: '2rem' }}>
-        <span className="text-dim">$</span>{' '}
-        <span className="text-green">cat</span>{' '}
-        <span className="text-orange">CLAUDE.md</span>
-      </h2>
+    <div className="bg-image-slide">
+      <img
+        src={claudeMdVsReadme}
+        alt="CLAUDE.md vs README.md"
+        className="bg-image-slide__background"
+      />
 
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '1000px',
-          width: '100%',
-          margin: '0 auto',
-        }}
-      >
+      <div className="bg-image-slide__content">
+        <h2 style={{ marginBottom: '2rem' }}>
+          <span className="text-dim">$</span>{' '}
+          <span className="text-green">cat</span>{' '}
+          <span className="text-orange">CLAUDE.md</span>
+        </h2>
+
         <SlideItem delay={0.05}>
           <Code>CLAUDE.md</Code> для Claude Code — те саме, що{' '}
           <Code>README.md</Code> для людей-розробників
@@ -47,16 +47,15 @@ export const ClaudeMdSlide: SlideDefinition = {
         </SlideItem>
 
         <SlideItem delay={0.3}>
-          комітьте <Code>CLAUDE.md</Code> в git, щоб ділитися best
-          practices
+          комітьте <Code>CLAUDE.md</Code> в git, щоб ділитися best practices
         </SlideItem>
 
         <SlideItem delay={0.35}>
-          можна класти <Code>CLAUDE.md</Code> в будь-яку підпапку для
-          локальних інструкцій в монорепозиторіях
+          можна класти <Code>CLAUDE.md</Code> в будь-яку підпапку для локальних
+          інструкцій в монорепозиторіях
         </SlideItem>
       </div>
-    </>
+    </div>
   ),
   notes: 'How to work with CLAUDE.md files - best practices and configuration options',
 };
