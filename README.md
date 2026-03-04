@@ -1,3 +1,3 @@
 # Pragmatic Vibe Clauding UA
 
-[View Presentation](https://yermilov.github.io/pragmatic-vibe-clauding-ua/)
+[View Presentation](https://yermilov.github.io/how-to-make-your-team-ai-first-en/)

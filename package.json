@@ -1,9 +1,9 @@
 {
-  "name": "pragmatic-vibe-clauding-ua",
+  "name": "how-to-make-your-team-ai-first-en",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://yermilov.github.io/pragmatic-vibe-clauding-ua",
+  "homepage": "https://yermilov.github.io/how-to-make-your-team-ai-first-en",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

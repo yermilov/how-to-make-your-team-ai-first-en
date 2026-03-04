@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/pragmatic-vibe-clauding-ua/',
+  base: '/how-to-make-your-team-ai-first-en/',
 })

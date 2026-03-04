@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A custom terminal-themed presentation site built with React and TypeScript. Features a Claude Code-inspired aesthetic with command-based navigation. Hosted on GitHub Pages at https://yermilov.github.io/pragmatic-vibe-clauding-ua
+A custom terminal-themed presentation site built with React and TypeScript. Features a Claude Code-inspired aesthetic with command-based navigation. Hosted on GitHub Pages at https://yermilov.github.io/how-to-make-your-team-ai-first-en
 
 ## Tech Stack
 
@@ -15,8 +15,8 @@ A custom terminal-themed presentation site built with React and TypeScript. Feat
 ## Commands
 
 ```bash
-bun install      # Install dependencies
-bun run dev      # Start dev server (http://localhost:5173)
+bun install      # Install dependencies (REQUIRED before first `bun run dev`)
+bun run dev      # Start dev server (http://localhost:5173/how-to-make-your-team-ai-first-en/)
 bun run build    # Build for production
 bun run preview  # Preview production build
 bun run deploy   # Manual deploy to GitHub Pages
@@ -92,7 +92,7 @@ import myImage from '/my-image.png?url';
 <img src={myImage} alt="Description" />
 ```
 
-**Important:** Do NOT use direct paths like `src="/image.png"` — they break on GitHub Pages due to the base URL (`/pragmatic-vibe-clauding-ua`).
+**Important:** Do NOT use direct paths like `src="/image.png"` — they break on GitHub Pages due to the base URL (`/how-to-make-your-team-ai-first-en`).
 
 ### Full-Screen Image Slides
 
@@ -179,6 +179,16 @@ This ensures:
 - High-quality, production-grade code
 - Proper use of design tokens
 - Distinctive, non-generic styling
+
+### IMPORTANT: Verify Changes in Browser
+
+**After ANY change to slides, styles, config, or URLs — verify visually using the Chrome extension.**
+
+Workflow:
+1. Make the change
+2. Confirm dev server is running (`bun run dev`)
+3. Use Chrome extension to navigate to `http://localhost:5173/how-to-make-your-team-ai-first-en/`
+4. Take a screenshot and confirm the change looks correct before declaring done
 
 ### Code Style
 
