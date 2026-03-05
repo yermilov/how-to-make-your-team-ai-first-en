@@ -7,19 +7,28 @@ import aiTechDebt from '/timeline-ai-tech-debt.png?url';
 import claudeCodeEmail from '/timeline-claude-code-email.png?url';
 
 interface TimelineItem {
-  time: string;
+  anchorDate: Date | null;
   text: string;
   image: string | null;
   emphasis?: boolean;
 }
 
+function timeLabel(anchorDate: Date | null): string {
+  if (!anchorDate) return 'since then';
+  const now = new Date();
+  const months =
+    (now.getFullYear() - anchorDate.getFullYear()) * 12 +
+    (now.getMonth() - anchorDate.getMonth());
+  return `${months} month${months === 1 ? '' : 's'} ago`;
+}
+
 const timelineItems: TimelineItem[] = [
-  { time: '15 місяців тому', text: 'cursor? прикольний автокомпліт', image: null },
-  { time: '14 місяців тому', text: 'я не вмію у фронтенд, cursor допоможи', image: cursorFrontend },
-  { time: '10 місяців тому', text: 'а що якщо це не тільки про код генерацію а про парне програмування?', image: mentoringLlm },
-  { time: '9 місяців тому', text: 'але це все ще іграшкова технологія, так?', image: aiTechDebt },
-  { time: '8 місяців тому', text: 'клод код? давайте спробуємо', image: claudeCodeEmail },
-  { time: 'з тих пір', text: 'жодного рядка коду я не написав руками', image: null, emphasis: true },
+  { anchorDate: new Date(2024, 9),  text: 'cursor? cool autocomplete', image: null },
+  { anchorDate: new Date(2024, 10), text: "I can't do frontend, cursor help me", image: cursorFrontend },
+  { anchorDate: new Date(2025, 2),  text: 'what if this is not just about code generation but pair programming?', image: mentoringLlm },
+  { anchorDate: new Date(2025, 3),  text: "but it's still a toy technology, right?", image: aiTechDebt },
+  { anchorDate: new Date(2025, 4),  text: "claude code? let's try it", image: claudeCodeEmail },
+  { anchorDate: null,               text: "haven't written a single line of code by hand since", image: null, emphasis: true },
 ];
 
 export const TimelineSlide: SlideDefinition = {
@@ -32,7 +41,7 @@ export const TimelineSlide: SlideDefinition = {
     return (
       <div className="timeline-slide-v2">
         <h2 className="timeline-title-v2">
-          <span className="text-dim">$</span> мій таймлайн
+          <span className="text-dim">$</span> my timeline
         </h2>
 
         <div className="timeline-layout">
@@ -50,7 +59,7 @@ export const TimelineSlide: SlideDefinition = {
                     className={`timeline-log__item ${isActive ? 'timeline-log__item--active' : ''} ${isPast ? 'timeline-log__item--past' : ''} ${isEmphasis && isActive ? 'timeline-log__item--emphasis' : ''}`}
                   >
                     <div className={`timeline-log__time ${isEmphasis ? 'timeline-log__time--emphasis' : ''}`}>
-                      {item.time}
+                      {timeLabel(item.anchorDate)}
                     </div>
                   </div>
                 );
