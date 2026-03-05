@@ -274,26 +274,25 @@
 /* === ONBOARDING TOOLTIP === */
 .onboarding-tooltip {
   position: fixed;
-  bottom: calc(var(--input-height) + var(--space-xl) + var(--space-lg) + var(--space-md));
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: calc(var(--input-height) + var(--space-md));
+  right: var(--space-xl);
   background: var(--terminal-bg-elevated);
   border: 1px solid var(--terminal-border);
   border-radius: var(--input-border-radius);
   padding: var(--space-md) var(--space-lg);
   z-index: 1002;
-  max-width: 380px;
+  max-width: 320px;
   animation: tooltipSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes tooltipSlideIn {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(12px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -1129,6 +1128,16 @@
   94% { opacity: 0.88; }
 }
 
+/* Tagline — between title and author */
+.title-slide .title-tagline {
+  font-size: 2rem;
+  color: var(--terminal-green);
+  text-shadow: var(--glow-text-green);
+  margin: 0.5rem 0 1.5rem;
+  animation: subtitlePulse 4s ease-in-out infinite;
+  will-change: opacity, text-shadow;
+}
+
 /* Subtitle soft pulse */
 .title-subtitle {
   animation: subtitlePulse 4s ease-in-out infinite;
@@ -1391,7 +1400,7 @@
 
 .pointer-tooltip {
   position: fixed;
-  bottom: calc(var(--input-height) + var(--space-xl) + var(--space-md) + 56px);
+  bottom: calc(var(--input-height) + var(--space-md));
   background: var(--terminal-bg-elevated);
   border: 1px solid var(--terminal-border);
   border-radius: var(--input-border-radius);

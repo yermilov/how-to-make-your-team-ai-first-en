@@ -11,19 +11,19 @@ export function OnboardingTooltip({ visible = true }: OnboardingTooltipProps) {
     <div className="onboarding-tooltip">
       <div className="onboarding-tooltip-header">
         <span className="onboarding-tooltip-icon">?</span>
-        <span className="onboarding-tooltip-title">Навігація</span>
+        <span className="onboarding-tooltip-title">Navigation</span>
       </div>
       <ul className="onboarding-tooltip-list">
         <li>
-          <code>next</code> або <code>n</code> — Наступний слайд
+          <code>next</code> or <code>n</code> — Next slide
         </li>
         <li>
-          <code>prev</code> або <code>p</code> — Попередній слайд
+          <code>prev</code> or <code>p</code> — Previous slide
         </li>
         <li>
-          Число (напр. <code>5</code>) — Перейти до слайду
+          Number (e.g. <code>5</code>) — Go to slide
         </li>
-        <li>Стрілки також працюють!</li>
+        <li>Arrow keys work too!</li>
       </ul>
     </div>
   );

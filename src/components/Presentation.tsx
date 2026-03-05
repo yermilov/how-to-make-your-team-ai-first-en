@@ -210,10 +210,10 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
         <PointerTooltip position="left">
           <div className="pointer-tooltip-header">
             <span className="onboarding-tooltip-icon">?</span>
-            <span className="pointer-tooltip-title">Таймер</span>
+            <span className="pointer-tooltip-title">Timer</span>
           </div>
           <p className="pointer-tooltip-text">
-            допомагає відстежити тривалість презентації. натисни <code>[start]</code> або введи <code>start</code> щоб почати
+            helps track presentation duration. press <code>[start]</code> or type <code>start</code> to begin
           </p>
         </PointerTooltip>
       )}
