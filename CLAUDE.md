@@ -367,9 +367,9 @@ The branch contains no source code — only session checkpoint metadata and tran
 
 Each checkpoint corresponds to a Claude Code session commit (strategy: `manual-commit`) and records which files were touched, token usage, and the full conversation transcript. Do not manually edit or delete this branch.
 
-**Current status: disabled.** entire was disabled to prevent session transcripts (which may contain secrets) from being committed to the repo.
+**Current status: enabled.** `.claude/settings.local.json` is gitignored to keep local tool permissions out of the repo.
 
+To disable: `entire disable`
 To re-enable: `entire enable --agent claude-code`
-To disable again: `entire disable`
 
 Documentation: `gh api repos/entireio/cli/contents/README.md --jq '.content' | base64 -d`
