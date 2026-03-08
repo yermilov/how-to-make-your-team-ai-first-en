@@ -9,6 +9,7 @@ import claudeCodeEmail from '/timeline-claude-code-email.png?url';
 interface TimelineItem {
   anchorDate: Date | null;
   text: string;
+  bullets?: string[];
   image: string | null;
   emphasis?: boolean;
 }
@@ -28,7 +29,18 @@ const timelineItems: TimelineItem[] = [
   { anchorDate: new Date(2025, 2),  text: 'what if this is not just about code generation but pair programming?', image: mentoringLlm },
   { anchorDate: new Date(2025, 3),  text: "but it's still a toy technology, right?", image: aiTechDebt },
   { anchorDate: new Date(2025, 4),  text: "claude code? let's try it", image: claudeCodeEmail },
-  { anchorDate: null,               text: "haven't written a single line of code by hand since", image: null, emphasis: true },
+  {
+    anchorDate: null,
+    text: "haven't written a single line of code by hand since",
+    bullets: [
+      "haven't written a single line of code by hand since",
+      "spent 2025 figuring out personal effective AI agentic coding workflow",
+      "evangelising Claude Code among Superhuman: workshops, tutorials, 1-1s",
+      "building internal tools: plugin system, skills, autonomous agents",
+    ],
+    image: null,
+    emphasis: true,
+  },
 ];
 
 export const TimelineSlide: SlideDefinition = {
@@ -84,9 +96,15 @@ export const TimelineSlide: SlideDefinition = {
           <div className="timeline-panel">
             <div className="timeline-panel__content" key={currentStage}>
               {/* Text */}
-              <div className={`timeline-panel__text ${currentItem.emphasis ? 'timeline-panel__text--emphasis' : ''}`}>
-                {currentItem.text}
-              </div>
+              {currentItem.bullets ? (
+                <ul className={`timeline-panel__list ${currentItem.emphasis ? 'timeline-panel__list--emphasis' : ''}`}>
+                  {currentItem.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                </ul>
+              ) : (
+                <div className={`timeline-panel__text ${currentItem.emphasis ? 'timeline-panel__text--emphasis' : ''}`}>
+                  {currentItem.text}
+                </div>
+              )}
 
               {/* Image if available */}
               {currentItem.image && (
