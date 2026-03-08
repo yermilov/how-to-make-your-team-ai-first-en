@@ -67,19 +67,19 @@ export const IntroSlide: SlideDefinition = {
     <>
       <div className="onboarding-tooltip-header">
         <span className="onboarding-tooltip-icon">?</span>
-        <span className="onboarding-tooltip-title">Підказка</span>
+        <span className="onboarding-tooltip-title">Hint</span>
       </div>
       <ul className="onboarding-tooltip-list">
         <li>
-          введіть назву інструменту, щоб підсвітити
+          type a tool name to highlight it
         </li>
       </ul>
     </>
   ),
   content: ({ activatedTools }: SlideContentProps) => (
     <>
-      <h2>давайте знайомитися з вами</h2>
-      <h1 className="hero">розкажіть про свій досвід ai кодінгу</h1>
+      <h2>let's get to know you</h2>
+      <h1 className="hero">tell us about your ai coding experience</h1>
 
       <div className="tool-grid">
         {AI_TOOLS.map((tool, index) => (
