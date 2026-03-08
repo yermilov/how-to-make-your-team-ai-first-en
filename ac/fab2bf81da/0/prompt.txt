@@ -1,0 +1,9 @@
+update title in README.md
+
+---
+
+/claude-md-improver
+
+---
+
+yes, also add recent information about images and slides height

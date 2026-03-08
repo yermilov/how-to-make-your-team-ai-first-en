@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "acfab2bf81da",
+  "strategy": "manual-commit",
+  "branch": "update-docs",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "CLAUDE.md",
+    "README.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/ac/fab2bf81da/0/metadata.json",
+      "transcript": "/ac/fab2bf81da/0/full.jsonl",
+      "content_hash": "/ac/fab2bf81da/0/content_hash.txt",
+      "prompt": "/ac/fab2bf81da/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 211,
+    "cache_creation_tokens": 18396,
+    "cache_read_tokens": 653470,
+    "output_tokens": 5929,
+    "api_call_count": 16
+  }
+}

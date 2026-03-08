@@ -1,0 +1,36 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "acfab2bf81da",
+  "session_id": "789c56d5-eaa6-497c-adc2-071e37df3ae0",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-08T18:37:29.847952Z",
+  "branch": "update-docs",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "CLAUDE.md",
+    "README.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "925f77050a3a",
+  "checkpoint_transcript_start": 91,
+  "transcript_lines_at_start": 91,
+  "token_usage": {
+    "input_tokens": 211,
+    "cache_creation_tokens": 18396,
+    "cache_read_tokens": 653470,
+    "output_tokens": 5929,
+    "api_call_count": 16
+  },
+  "session_metrics": {
+    "turn_count": 6
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-08T18:37:29.753319Z",
+    "agent_lines": 96,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 96,
+    "agent_percentage": 100
+  }
+}
