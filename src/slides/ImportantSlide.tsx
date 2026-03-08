@@ -10,6 +10,7 @@ export const ImportantSlide: SlideDefinition = {
         src={importantImage}
         alt="Important balance between human expertise and AI"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

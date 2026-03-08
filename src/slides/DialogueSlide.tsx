@@ -11,6 +11,7 @@ export const DialogueSlide: SlideDefinition = {
         src={dialogueFlow}
         alt="Step-by-step dialogue flow"
         className="mcp-slide-image-left"
+        loading="lazy"
       />
 
       <div className="mcp-slide-content">
@@ -42,6 +43,7 @@ export const DialogueSlide: SlideDefinition = {
         src={dialogueMemory}
         alt="LLM memory recency"
         className="mcp-slide-image-right"
+        loading="lazy"
       />
     </div>
   ),

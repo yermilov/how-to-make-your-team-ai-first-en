@@ -54,6 +54,7 @@ export const SavingsSlide: SlideDefinition = {
         src={budgetPricingTiers}
         alt="Pricing tiers visualization"
         className="mcp-slide-image-left"
+        loading="lazy"
       />
 
       <div className="mcp-slide-content">
@@ -121,6 +122,7 @@ export const SavingsSlide: SlideDefinition = {
         src={budgetWorkflowStrategy}
         alt="Budget workflow strategy"
         className="mcp-slide-image-right"
+        loading="lazy"
       />
     </div>
   ),

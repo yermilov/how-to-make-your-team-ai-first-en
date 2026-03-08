@@ -175,6 +175,7 @@ export const JuniorEngineerSlide: SlideDefinition = {
             maxWidth: '520px',
             animation: 'imageFloat 6s ease-in-out infinite, glowBreath 4s ease-in-out infinite',
           }}
+          loading="lazy"
         />
         <div style={{
           marginTop: '1.25rem',

@@ -10,6 +10,7 @@ export const ContextToolsSlide: SlideDefinition = {
         src={contextToolsGathering}
         alt="Context gathering sources - voice, PDFs, research, diagrams"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

@@ -22,6 +22,7 @@ export const InstallSlide: SlideDefinition = {
           src={claudePricing}
           alt="Claude pricing tiers: Free, Pro, Max"
           className="install-slide-image"
+          loading="lazy"
         />
       </div>
     </div>

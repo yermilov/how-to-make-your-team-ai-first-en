@@ -94,6 +94,7 @@ export const TimelineSlide: SlideDefinition = {
                   src={currentItem.image}
                   alt={currentItem.text}
                   className="timeline-panel__image"
+                  loading="lazy"
                 />
               )}
             </div>

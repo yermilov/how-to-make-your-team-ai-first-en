@@ -11,6 +11,7 @@ export const McpSlide: SlideDefinition = {
         src={mcpToolCallFlow}
         alt="LLM tool call token flow"
         className="mcp-slide-image-left"
+        loading="lazy"
       />
 
       <div className="mcp-slide-content">
@@ -58,6 +59,7 @@ export const McpSlide: SlideDefinition = {
         src={mcpContextPollution}
         alt="MCP context window pollution"
         className="mcp-slide-image-right"
+        loading="lazy"
       />
     </div>
   ),

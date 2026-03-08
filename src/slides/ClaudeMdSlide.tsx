@@ -15,6 +15,7 @@ export const ClaudeMdSlide: SlideDefinition = {
         src={claudeMdVsReadme}
         alt="CLAUDE.md vs README.md"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

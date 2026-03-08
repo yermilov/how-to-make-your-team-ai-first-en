@@ -81,6 +81,7 @@ export const FinalSlide: SlideDefinition = {
             animation: 'slideItemFadeIn 0.5s ease-out forwards',
             animationDelay: '0.35s',
           }}
+          loading="lazy"
         />
       </div>
     </>

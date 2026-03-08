@@ -55,6 +55,7 @@ function ModelBadge({
           objectFit: 'contain',
           filter: `drop-shadow(0 0 15px ${colors.glow})`,
         }}
+        loading="lazy"
       />
       <span
         style={{

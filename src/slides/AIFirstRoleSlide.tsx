@@ -35,6 +35,7 @@ export const AIFirstRoleSlide: SlideDefinition = {
         src={aiFirstRoleBg}
         alt="AI-First mindset transformation"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

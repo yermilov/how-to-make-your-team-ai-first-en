@@ -52,6 +52,7 @@ export const AIFirstWorkflowSlide: SlideDefinition = {
         src={aiFirstWorkflowBg}
         alt="AI-First workflow and tools"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

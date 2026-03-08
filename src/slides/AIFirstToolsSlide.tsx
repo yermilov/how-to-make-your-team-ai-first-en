@@ -35,6 +35,7 @@ export const AIFirstToolsSlide: SlideDefinition = {
         src={aiFirstToolsBg}
         alt="AI-First 10x thinking"
         className="bg-image-slide__background"
+        loading="lazy"
       />
 
       <div className="bg-image-slide__content">

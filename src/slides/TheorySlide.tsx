@@ -7,7 +7,7 @@ export const TheorySlide: SlideDefinition = {
     <>
       <h2>тепер трохи теорії</h2>
       <div className="theory-image-container">
-        <img src={llmInfographic} alt="How LLMs work: context + prompt → continuation" />
+        <img src={llmInfographic} alt="How LLMs work: context + prompt → continuation" loading="lazy" />
       </div>
     </>
   ),

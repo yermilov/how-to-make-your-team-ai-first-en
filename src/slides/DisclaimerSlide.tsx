@@ -71,6 +71,7 @@ export const DisclaimerSlide: SlideDefinition = {
           src={terminalFighter}
           alt="Terminal CLI Fighter"
           className="vs-fighter-image"
+          loading="lazy"
         />
         <div className="vs-fighter-name">Terminal</div>
       </div>
@@ -121,6 +122,7 @@ export const DisclaimerSlide: SlideDefinition = {
           src={ideFighter}
           alt="IDE Code Editor Fighter"
           className="vs-fighter-image"
+          loading="lazy"
         />
         <div className="vs-fighter-name">IDE</div>
       </div>
