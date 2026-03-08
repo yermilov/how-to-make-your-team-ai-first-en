@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "82b3f6b23237",
+  "strategy": "manual-commit",
+  "branch": "fix-slide-height-overflow",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "src/slides/AgendaSlide.tsx",
+    "src/slides/ContextPrinciplesSlide.tsx",
+    "src/styles/terminal.css"
+  ],
+  "sessions": [
+    {
+      "metadata": "/82/b3f6b23237/0/metadata.json",
+      "transcript": "/82/b3f6b23237/0/full.jsonl",
+      "content_hash": "/82/b3f6b23237/0/content_hash.txt",
+      "prompt": "/82/b3f6b23237/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 1324,
+    "cache_creation_tokens": 288336,
+    "cache_read_tokens": 15568605,
+    "output_tokens": 49103,
+    "api_call_count": 181
+  }
+}
