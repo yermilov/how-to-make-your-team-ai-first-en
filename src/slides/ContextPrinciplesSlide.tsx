@@ -50,8 +50,8 @@ function PrincipleDirective({
         background: 'linear-gradient(135deg, var(--terminal-bg-elevated) 0%, var(--terminal-bg-secondary) 100%)',
         borderLeft: `4px solid ${c.border}`,
         borderRadius: '0 8px 8px 0',
-        padding: '1rem 1.5rem',
-        marginBottom: '0.75rem',
+        padding: '0.65rem 1.25rem',
+        marginBottom: '0.5rem',
         boxShadow: `0 2px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03), -4px 0 20px ${c.glow}`,
         opacity: 0,
         animation: 'directiveSlide 0.4s ease-out forwards',
@@ -169,7 +169,7 @@ export const ContextPrinciplesSlide: SlideDefinition = {
         `}
       </style>
 
-      <h2 style={{ marginBottom: '2rem' }}>
+      <h2 style={{ marginBottom: '1rem' }}>
         <span className="text-dim">$</span> принципи роботи з контекстом
       </h2>
 
