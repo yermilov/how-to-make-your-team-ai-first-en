@@ -1,127 +1,86 @@
+import agendaEngineerImage from '/agenda-engineer.png?url';
+import agendaTeamImage from '/agenda-team.png?url';
+import agendaOrgImage from '/agenda-org.png?url';
 import { SlideDefinition } from '../types/slides';
 
-type Level = 'high' | 'medium' | 'low';
-
-const levelStyles = {
-  high: {
-    prefix: '>>',
-    prefixColor: 'var(--terminal-orange)',
-    labelColor: 'var(--terminal-white)',
-    labelGlow: '0 0 20px rgba(240, 136, 62, 0.3)',
-    descColor: 'var(--terminal-green)',
-    opacity: 1,
-  },
-  medium: {
-    prefix: '> ',
-    prefixColor: 'var(--terminal-blue)',
-    labelColor: 'var(--terminal-white)',
-    labelGlow: 'none',
-    descColor: 'var(--terminal-green-dim)',
-    opacity: 1,
-  },
-  low: {
-    prefix: '--',
-    prefixColor: 'var(--terminal-white-dim)',
-    labelColor: 'var(--terminal-white)',
-    labelGlow: 'none',
-    descColor: 'var(--terminal-white-dim)',
-    opacity: 0.85,
-  },
-};
-
-function AgendaItem({ level, label, desc }: { level: Level; label: string; desc: string }) {
-  const s = levelStyles[level];
-
+function AgendaImageSlide({
+  src,
+  alt,
+  index,
+  desc,
+}: {
+  src: string;
+  alt: string;
+  index: number;
+  desc: string;
+}) {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: '2.5rem 1fr auto',
+        display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        gap: '0.5rem',
-        fontSize: '1.35rem',
-        opacity: s.opacity,
+        gap: '1.25rem',
+        width: '100%',
       }}
     >
-      <span style={{ color: s.prefixColor, fontWeight: 'bold' }}>{s.prefix}</span>
-      <span
-        style={{
-          color: s.labelColor,
-          textShadow: s.labelGlow,
-        }}
-      >
-        {label}
-      </span>
-      <span
-        style={{
-          color: s.descColor,
-          fontSize: '1.1rem',
-          fontStyle: 'italic',
-        }}
-      >
-        {desc}
-      </span>
-    </div>
-  );
-}
-
-function AgendaSection({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div style={{ marginBottom: '1rem' }}>
-      <div
-        style={{
-          color: 'var(--terminal-blue)',
-          fontSize: '0.9rem',
-          letterSpacing: '0.15em',
-          marginBottom: '0.5rem',
-          borderBottom: '1px solid var(--terminal-border)',
-          paddingBottom: '0.2rem',
-          textTransform: 'uppercase',
-        }}
-      >
-        {title}
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>{children}</div>
-    </div>
-  );
-}
-
-export const AgendaSlide: SlideDefinition = {
-  id: 'agenda',
-  content: (
-    <>
-      <h2 style={{ marginBottom: '1rem' }}>
-        <span className="text-dim">$</span> ./talk <span className="text-orange">--help</span>
+      <h2 style={{ marginBottom: 0 }}>
+        <span className="text-dim">$</span> ./talk{' '}
+        <span className="text-orange">--help</span>
+        <span className="text-dim" style={{ fontSize: '1.5rem', marginLeft: '1.5rem' }}>
+          [{index}/3] {desc}
+        </span>
       </h2>
 
-      <p style={{ marginBottom: '0.75rem', fontSize: '1.3rem' }}>
-        про що ми сьогодні будемо і не будемо говорити?
-      </p>
-
-      <div
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
         style={{
-          textAlign: 'left',
-          display: 'inline-block',
-          maxWidth: '900px',
-          width: '100%',
+          maxWidth: '100%',
+          maxHeight: 'calc(var(--vh-full) - 240px)',
+          objectFit: 'contain',
+          borderRadius: '8px',
+          border: '1px solid var(--terminal-border)',
+          boxShadow: '0 0 30px rgba(126, 231, 135, 0.1)',
         }}
-      >
-        <AgendaSection title="tools">
-          <AgendaItem level="high" label="claude code" desc="будемо багато" />
-          <AgendaItem level="medium" label="codex, cursor" desc="будемо мало" />
-          <AgendaItem level="low" label="інші тули" desc="майже не будемо" />
-        </AgendaSection>
+      />
+    </div>
+  );
+}
 
-        <AgendaSection title="scope">
-          <AgendaItem level="high" label="як прагматично використати claude code в хакатон режимі?" desc="будемо" />
-          <AgendaItem level="medium" label="як довгостроково розвивати продукт використовуючи claude code?" desc="будемо трохи" />
-        </AgendaSection>
-
-        <AgendaSection title="audience">
-          <AgendaItem level="high" label="claude code для інженерів" desc="будемо" />
-          <AgendaItem level="low" label="claude code для не-інженерів" desc="майже не будемо" />
-        </AgendaSection>
-      </div>
-    </>
-  ),
-};
+export const AgendaSlides: SlideDefinition[] = [
+  {
+    id: 'agenda-engineer',
+    content: (
+      <AgendaImageSlide
+        src={agendaEngineerImage}
+        alt="AI-First Engineer"
+        index={1}
+        desc="individual mastery"
+      />
+    ),
+  },
+  {
+    id: 'agenda-team',
+    content: (
+      <AgendaImageSlide
+        src={agendaTeamImage}
+        alt="AI-First Team"
+        index={2}
+        desc="collective workflows"
+      />
+    ),
+  },
+  {
+    id: 'agenda-org',
+    content: (
+      <AgendaImageSlide
+        src={agendaOrgImage}
+        alt="AI-First Organization"
+        index={3}
+        desc="culture & process"
+      />
+    ),
+  },
+];
