@@ -13,43 +13,57 @@ export const ContextToolsSlide: SlideDefinition = {
         loading="lazy"
       />
 
-      <div className="bg-image-slide__content">
-        <h2 style={{ marginBottom: '2rem' }}>
+      <div className="bg-image-slide__content" style={{ maxWidth: '1100px' }}>
+        <h2 style={{ marginBottom: '1.5rem' }}>
           <span className="text-dim">$</span>{' '}
           <span className="text-green">context</span>{' '}
           <span className="text-orange">--tools</span>
         </h2>
 
-        <SlideItem delay={0.05}>
-          опишіть свою задачу максимально детально наскільки тільки можете (або
-          використовуйте <SlideLink href="https://handy.computer/">handy.computer</SlideLink>{' '}
-          чи <SlideLink href="https://wisprflow.ai/">wisprflow.ai</SlideLink> якщо вам
-          зручніше надиктувати)
-        </SlideItem>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 3rem' }}>
+          <SlideItem delay={0.05}>
+            describe your task in as much detail as possible (use{' '}
+            <Code>/voice</Code>, or{' '}
+            <SlideLink href="https://handy.computer/">handy.computer</SlideLink>{' '}
+            or <SlideLink href="https://wisprflow.ai/">wisprflow.ai</SlideLink> if
+            you prefer to dictate)
+          </SlideItem>
 
-        <SlideItem delay={0.15}>
-          якщо проблема достатньо складна — спочатку обговоріть її з{' '}
-          <Code>Deep Research</Code> агентом як от ChatGPT чи Gemini, і додайте
-          ріпорт до Claude Code
-        </SlideItem>
+          <SlideItem delay={0.15}>
+            if the problem is complex enough — discuss it with a{' '}
+            <Code>Deep Research</Code> agent like ChatGPT or Gemini first, and add
+            the report to Claude Code
+          </SlideItem>
 
-        <SlideItem delay={0.25}>
-          пошукайте блогпости чи статті на тему і додайте лінки (або{' '}
-          <Code>pdf</Code>-ки)
-        </SlideItem>
+          <SlideItem delay={0.25}>
+            draw a diagram or design on paper, a whiteboard, or digitally —
+            take a photo or screenshot and add it to Claude Code
+          </SlideItem>
 
-        <SlideItem delay={0.35}>
-          пошукайте опен-сорс проєкти які вирішують схожі задачі, попросіть
-          клода <Quote>install gh cli and browse these repos for inspiration</Quote>
-        </SlideItem>
+          <SlideItem delay={0.35}>
+            find open-source projects that solve similar problems, ask Claude{' '}
+            <Quote>install gh cli and browse these repos for inspiration</Quote>
+          </SlideItem>
 
-        <SlideItem delay={0.45}>
-          намалюйте схему чи дізайн на листочку, дошці чи у цифровому вигляді,
-          сфоткайте або зробіть скріншот і додайте до Claude Code
-        </SlideItem>
+          <SlideItem delay={0.45}>
+            search for blog posts or articles on the topic and add the links (or{' '}
+            <Code>pdf</Code>s)
+          </SlideItem>
+
+          <SlideItem delay={0.55}>
+            don't use MCPs — use CLIs or skills instead
+          </SlideItem>
+
+          <div style={{ gridColumn: '1 / -1' }}>
+            <SlideItem delay={0.65}>
+              if Claude Code makes a mistake, tell it{' '}
+              <Quote>instead do X and remember this information in <Code>CLAUDE.md</Code></Quote>
+            </SlideItem>
+          </div>
+        </div>
       </div>
     </div>
   ),
   notes:
-    'Context building tools - describe task in detail, use Deep Research, add articles/PDFs, browse open-source repos, add diagrams/screenshots',
+    'Context building tools — describe task in detail, use Deep Research, add articles/PDFs, browse open-source repos, add diagrams/screenshots, avoid MCPs use CLIs or skills, if Claude Code makes a mistake tell it to do X instead and remember in CLAUDE.md',
 };
