@@ -18,6 +18,10 @@ import { CodeSlopSlide } from './CodeSlopSlide';
 import { ImportantSlide } from './ImportantSlide';
 import { UltimateExampleSlide } from './UltimateExampleSlide';
 import { SkillsAuthoringSlide } from './SkillsAuthoringSlide';
+import { SkillFlywheelSlide } from './SkillFlywheelSlide';
+import { SkillMarketplaceSlide } from './SkillMarketplaceSlide';
+import { MetaSkillsSlide } from './MetaSkillsSlide';
+import { SkillsActivatorSlide } from './SkillsActivatorSlide';
 import { FinalSlide } from './FinalSlide';
 
-export const slides = [TitleSlide, BioSlide, TimelineSlide, IntroSlide, ClaudeCodeSlide, EngineerSectionSlide, JuniorEngineerSlide, DisclaimerSlide, VibeFlowSlide, ContextToolsSlide, CodeSlopSlide, ImportantSlide, UltimateExampleSlide, TeamSectionSlide, WhatIsAiFirstTeamSlide, SdlcTracesSlide, PersonalAspirationSlide, BreakOutOfCodingSlide, SkillsAuthoringSlide, OrgSectionSlide, FinalSlide];
+export const slides = [TitleSlide, BioSlide, TimelineSlide, IntroSlide, ClaudeCodeSlide, EngineerSectionSlide, JuniorEngineerSlide, DisclaimerSlide, VibeFlowSlide, ContextToolsSlide, CodeSlopSlide, ImportantSlide, UltimateExampleSlide, TeamSectionSlide, WhatIsAiFirstTeamSlide, SdlcTracesSlide, PersonalAspirationSlide, BreakOutOfCodingSlide, SkillsAuthoringSlide, SkillFlywheelSlide, SkillMarketplaceSlide, MetaSkillsSlide, SkillsActivatorSlide, OrgSectionSlide, FinalSlide];

@@ -55,6 +55,11 @@ export const SkillsAuthoringSlide: SlideDefinition = {
           or{' '}
           <Prompt>use skills-authorship skill to update ... skill to ...</Prompt>
         </SlideItem>
+
+        <SlideItem delay={0.40}>
+          every time claude uses a skill and something wasn't perfect — finish the session with{' '}
+          <Prompt>reflect on the current session and update the skill files to avoid mistakes you made and streamline experience next time</Prompt>
+        </SlideItem>
       </div>
     </>
   ),
