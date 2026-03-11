@@ -4,7 +4,7 @@ import contextToolsGathering from '/context-tools-gathering.png?url';
 
 export const ContextToolsSlide: SlideDefinition = {
   id: 'context-tools',
-  content: (
+  content: ({ revealStage }) => (
     <div className="bg-image-slide">
       <img
         src={contextToolsGathering}
@@ -28,35 +28,45 @@ export const ContextToolsSlide: SlideDefinition = {
             you prefer to dictate)
           </SlideItem>
 
-          <SlideItem delay={0.15}>
-            if the problem is complex enough — discuss it with a{' '}
-            <Code>Deep Research</Code> agent like ChatGPT or Gemini first, and add
-            the report to Claude Code
-          </SlideItem>
+          {revealStage >= 1 && (
+            <SlideItem delay={0}>
+              if the problem is complex enough — discuss it with a{' '}
+              <Code>Deep Research</Code> agent like ChatGPT or Gemini first, and add
+              the report to Claude Code
+            </SlideItem>
+          )}
 
-          <SlideItem delay={0.25}>
-            draw a diagram or design on paper, a whiteboard, or digitally —
-            take a photo or screenshot and add it to Claude Code
-          </SlideItem>
+          {revealStage >= 2 && (
+            <SlideItem delay={0}>
+              draw a diagram or design on paper, a whiteboard, or digitally —
+              take a photo or screenshot and add it to Claude Code
+            </SlideItem>
+          )}
 
-          <SlideItem delay={0.35}>
-            find open-source projects that solve similar problems, ask Claude{' '}
-            <Quote>browse these repos via gh cli for inspiration</Quote>
-          </SlideItem>
+          {revealStage >= 3 && (
+            <SlideItem delay={0}>
+              find open-source projects that solve similar problems, ask Claude{' '}
+              <Quote>browse these repos via gh cli for inspiration</Quote>
+            </SlideItem>
+          )}
 
-          <SlideItem delay={0.45}>
-            search for blog posts or articles on the topic and add the links (or{' '}
-            <Code>pdf</Code>s)
-          </SlideItem>
+          {revealStage >= 4 && (
+            <SlideItem delay={0}>
+              search for blog posts or articles on the topic and add the links (or{' '}
+              <Code>pdf</Code>s)
+            </SlideItem>
+          )}
 
-          <SlideItem delay={0.55}>
-            don't use MCPs — use CLIs or skills instead
-          </SlideItem>
-
+          {revealStage >= 5 && (
+            <SlideItem delay={0}>
+              don't use MCPs — use CLIs or skills instead
+            </SlideItem>
+          )}
         </div>
       </div>
     </div>
   ),
+  maxRevealStages: 5,
   notes:
     'Context building tools — describe task in detail, use Deep Research, add articles/PDFs, browse open-source repos, add diagrams/screenshots, avoid MCPs use CLIs or skills',
 };

@@ -1,10 +1,13 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { SlideDefinition } from '../types/slides';
 
 interface UseSlideNavigationReturn {
   currentSlide: number;
   goToSlide: (index: number) => void;
   nextSlide: () => void;
   prevSlide: () => void;
+  revealNext: () => void;
+  revealPrev: () => void;
   handleCommand: (command: string) => void;
   isFirstSlide: boolean;
   isLastSlide: boolean;
@@ -12,9 +15,11 @@ interface UseSlideNavigationReturn {
 }
 
 export function useSlideNavigation(
-  totalSlides: number,
+  slides: SlideDefinition[],
   initialSlide: number = 0
 ): UseSlideNavigationReturn {
+  const totalSlides = slides.length;
+
   // Parse initial slide from URL hash if present
   const getInitialSlide = (): number => {
     if (typeof window === 'undefined') return initialSlide;
@@ -31,6 +36,12 @@ export function useSlideNavigation(
 
   const [currentSlide, setCurrentSlide] = useState(getInitialSlide);
   const [revealStage, setRevealStage] = useState(0);
+
+  // Refs to avoid stale closures in the keyboard listener
+  const revealStageRef = useRef(0);
+  revealStageRef.current = revealStage;
+  const currentSlideRef = useRef(currentSlide);
+  currentSlideRef.current = currentSlide;
 
   // Clamp slide index to valid range
   const clampIndex = useCallback(
@@ -69,6 +80,25 @@ export function useSlideNavigation(
   const prevSlide = useCallback(() => {
     goToSlide(currentSlide - 1);
   }, [currentSlide, goToSlide]);
+
+  // Reveal next stage if available, otherwise advance to next slide
+  const revealNext = useCallback(() => {
+    const maxReveal = slides[currentSlideRef.current]?.maxRevealStages ?? 0;
+    if (revealStageRef.current < maxReveal) {
+      setRevealStage(prev => prev + 1);
+    } else {
+      nextSlide();
+    }
+  }, [slides, nextSlide]);
+
+  // Roll back reveal stage if any revealed, otherwise go to previous slide
+  const revealPrev = useCallback(() => {
+    if (revealStageRef.current > 0) {
+      setRevealStage(prev => prev - 1);
+    } else {
+      prevSlide();
+    }
+  }, [prevSlide]);
 
   // Parse and handle command input
   const handleCommand = useCallback(
@@ -134,13 +164,13 @@ export function useSlideNavigation(
         case ' ':
         case 'PageDown':
           e.preventDefault();
-          nextSlide();
+          revealNext();
           break;
         case 'ArrowLeft':
         case 'ArrowUp':
         case 'PageUp':
           e.preventDefault();
-          prevSlide();
+          revealPrev();
           break;
         case 'Home':
           e.preventDefault();
@@ -155,7 +185,7 @@ export function useSlideNavigation(
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [nextSlide, prevSlide, goToSlide, totalSlides]);
+  }, [revealNext, revealPrev, goToSlide, totalSlides]);
 
   // Listen for hash changes (browser back/forward)
   useEffect(() => {
@@ -184,6 +214,8 @@ export function useSlideNavigation(
     goToSlide,
     nextSlide,
     prevSlide,
+    revealNext,
+    revealPrev,
     handleCommand,
     isFirstSlide: currentSlide === 0,
     isLastSlide: currentSlide === totalSlides - 1,

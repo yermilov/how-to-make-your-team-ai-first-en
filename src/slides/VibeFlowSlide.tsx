@@ -8,7 +8,7 @@ function Command({ children }: { children: string }) {
 
 export const VibeFlowSlide: SlideDefinition = {
   id: 'vibe-flow',
-  content: (
+  content: ({ revealStage }) => (
     <>
       <h2 style={{ marginBottom: '2rem' }}>
         <span className="text-dim">$</span>{' '}
@@ -28,39 +28,56 @@ export const VibeFlowSlide: SlideDefinition = {
           <Command>/clear</Command> clear the session
         </SlideItem>
 
-        <SlideItem delay={0.1}>
-          switch to <Code>plan mode</Code>
-        </SlideItem>
+        {revealStage >= 1 && (
+          <SlideItem delay={0}>
+            switch to <Code>plan mode</Code>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.15}>describe the feature / bug, <span className="text-orange" style={{ textShadow: '0 0 8px rgba(240, 136, 62, 0.9), 0 0 20px rgba(240, 136, 62, 0.6), 0 0 40px rgba(240, 136, 62, 0.3)' }}>form the context</span></SlideItem>
+        {revealStage >= 2 && (
+          <SlideItem delay={0}>describe the feature / bug, <span className="text-orange" style={{ textShadow: '0 0 8px rgba(240, 136, 62, 0.9), 0 0 20px rgba(240, 136, 62, 0.6), 0 0 40px rgba(240, 136, 62, 0.3)' }}>form the context</span></SlideItem>
+        )}
 
-        <SlideItem delay={0.2}>
-          wait for the plan, review it, and iterate
-        </SlideItem>
+        {revealStage >= 3 && (
+          <SlideItem delay={0}>
+            wait for the plan, review it, and iterate
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.25}>
-          <Code>Yes, and auto-accept edits</Code>
-        </SlideItem>
+        {revealStage >= 4 && (
+          <SlideItem delay={0}>
+            <Code>Yes, and auto-accept edits</Code>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.28}>
-          if Claude Code asks you whether it can do something read-only and not very dangerous — always choose{' '}
-          <Emphasis>Yes, and don't ask me again</Emphasis>
-        </SlideItem>
+        {revealStage >= 5 && (
+          <SlideItem delay={0}>
+            if Claude Code asks you whether it can do something read-only and not very dangerous — always choose{' '}
+            <Emphasis>Yes, and don't ask me again</Emphasis>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.3}>
-          <Command>/commit-push-pr</Command>
-        </SlideItem>
+        {revealStage >= 6 && (
+          <SlideItem delay={0}>
+            <Command>/commit-push-pr</Command>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.35}>
-          <Command>/clear</Command>
-        </SlideItem>
+        {revealStage >= 7 && (
+          <SlideItem delay={0}>
+            <Command>/clear</Command>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.4}>
-          <Command>/simplify</Command> or <Command>/review</Command>
-        </SlideItem>
+        {revealStage >= 8 && (
+          <SlideItem delay={0}>
+            <Command>/simplify</Command> or <Command>/review</Command>
+          </SlideItem>
+        )}
       </div>
     </>
   ),
+  maxRevealStages: 8,
   notes:
     'The vibe flow workflow - clear session, plan mode, describe problem, iterate on plan, auto-accept, commit',
 };

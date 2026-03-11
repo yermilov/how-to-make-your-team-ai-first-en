@@ -1,9 +1,9 @@
 import { SlideDefinition } from '../types/slides';
-import { Code, Quote, SlideItem, SlideLink } from '../components/SlideElements';
+import { Code, Quote, SlideItem } from '../components/SlideElements';
 
 export const CodeSlopSlide: SlideDefinition = {
   id: 'code-slop',
-  content: (
+  content: ({ revealStage }) => (
     <>
       <h2 style={{ marginBottom: '2rem' }}>
         <span className="text-dim">$</span>{' '}
@@ -24,29 +24,29 @@ export const CodeSlopSlide: SlideDefinition = {
           <Quote>use frontend-design skill to create well-crafted ui/ux</Quote>
         </SlideItem>
 
-        <SlideItem delay={0.12}>
-          explore <Code>anthropics/claude-code</Code> marketplace for other helpful plugins
-        </SlideItem>
+        {revealStage >= 1 && (
+          <SlideItem delay={0}>
+            explore <Code>anthropics/claude-code</Code> marketplace for other helpful plugins
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.19}>
-          ask it to{' '}
-          <Quote>take a look how similar functionality is already implemented in the repo and follow the same patterns</Quote>
-        </SlideItem>
+        {revealStage >= 2 && (
+          <SlideItem delay={0}>
+            ask it to{' '}
+            <Quote>take a look how similar functionality is already implemented in the repo and follow the same patterns</Quote>
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.26}>
-          if Claude makes a mistake, correct it like this:{' '}
-          <Quote>instead do X and remember this gotcha in CLAUDE.md</Quote>
-        </SlideItem>
-
-        <SlideItem delay={0.33}>
-          install the Chrome extension{' '}
-          <SlideLink href="https://claude.com/chrome">claude.com/chrome</SlideLink>{' '}
-          and configure it with <Code>/chrome</Code>
-        </SlideItem>
-
+        {revealStage >= 3 && (
+          <SlideItem delay={0}>
+            if Claude makes a mistake, correct it like this:{' '}
+            <Quote>instead do X and remember this gotcha in CLAUDE.md</Quote>
+          </SlideItem>
+        )}
       </div>
     </>
   ),
+  maxRevealStages: 3,
   notes:
     'Code slop prevention tips - use frontend-design skill, follow repo patterns, teach Claude gotchas, write tests with TDD, write stubs manually, use ultrathink (crossed out), document everything',
 };

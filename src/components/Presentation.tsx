@@ -47,8 +47,8 @@ function getInitialTimerState(): { seconds: number; running: boolean } {
 }
 
 export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
-  const { currentSlide, handleCommand: handleNavCommand, revealStage, nextSlide, prevSlide } = useSlideNavigation(
-    slides.length,
+  const { currentSlide, handleCommand: handleNavCommand, revealStage, nextSlide, prevSlide, revealNext, revealPrev } = useSlideNavigation(
+    slides,
     initialSlide
   );
 
@@ -222,8 +222,8 @@ export function Presentation({ slides, initialSlide = 0 }: PresentationProps) {
       <TerminalInput
         onCommand={handleCommand}
         onInputChange={setInputText}
-        onArrowLeft={prevSlide}
-        onArrowRight={nextSlide}
+        onArrowLeft={revealPrev}
+        onArrowRight={revealNext}
         placeholder="type anything to continue, 'prev' to go back, or slide number..."
       />
     </div>
