@@ -55,7 +55,7 @@ function BioItem({ level, children }: { level: Level; children: React.ReactNode 
   );
 }
 
-function BioSection({ title, children }: { title: string; children: React.ReactNode }) {
+function BioSection({ title, children, titleSize }: { title: string; children: React.ReactNode; titleSize?: string }) {
   return (
     <div style={{ marginBottom: '1.5rem' }}>
       <div
@@ -63,6 +63,7 @@ function BioSection({ title, children }: { title: string; children: React.ReactN
         style={{
           borderBottom: '1px solid var(--terminal-border)',
           paddingBottom: '0.2rem',
+          ...(titleSize ? { fontSize: titleSize } : {}),
         }}
       >
         {title}
@@ -82,27 +83,13 @@ export const BioSlide: SlideDefinition = {
         </h2>
 
         <div style={{ textAlign: 'left' }}>
-          <BioSection title="8+ years at Grammarly / Superhuman">
+          <BioSection title="8+ years at Grammarly / Superhuman" titleSize="1.6rem">
             <BioItem level="high">0 -&gt; 1 projects</BioItem>
             <BioItem level="high">in 2025: rolling out AI coding agents across the company</BioItem>
             <BioItem level="medium">before that: tech lead of platform organization</BioItem>
             <BioItem level="medium">before that: tech lead of feature frameworks</BioItem>
             <BioItem level="medium">before that: led product features</BioItem>
             <BioItem level="low">before that: backend engineer</BioItem>
-          </BioSection>
-
-          <BioSection title="connect">
-            <BioItem level="high">
-              posting regularly on{' '}
-              <a
-                href="https://www.linkedin.com/in/yarik-yermilov/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="slide-link"
-              >
-                LinkedIn
-              </a>
-            </BioItem>
           </BioSection>
         </div>
       </div>
