@@ -11,6 +11,7 @@ interface TimelineItem {
   text: string;
   bullets?: string[];
   image: string | null;
+  imageClassName?: string;
   emphasis?: boolean;
 }
 
@@ -24,10 +25,10 @@ function timeLabel(anchorDate: Date | null): string {
 }
 
 const timelineItems: TimelineItem[] = [
-  { anchorDate: new Date(2024, 9),  text: 'cursor? cool autocomplete', image: null },
+  { anchorDate: new Date(2024, 9),  text: 'copilot? cool autocomplete', image: null },
   { anchorDate: new Date(2024, 10), text: "I can't do frontend, cursor help me", image: cursorFrontend },
   { anchorDate: new Date(2025, 2),  text: 'what if this is not just about code generation but pair programming?', image: mentoringLlm },
-  { anchorDate: new Date(2025, 3),  text: "but it's still a toy technology, right?", image: aiTechDebt },
+  { anchorDate: new Date(2025, 3),  text: "but it's still a toy technology, right?", image: aiTechDebt, imageClassName: 'timeline-panel__image--zoom-anim' },
   { anchorDate: new Date(2025, 4),  text: "claude code? let's try it", image: claudeCodeEmail },
   {
     anchorDate: null,
@@ -53,7 +54,7 @@ export const TimelineSlide: SlideDefinition = {
     return (
       <div className="timeline-slide-v2">
         <h2 className="timeline-title-v2">
-          <span className="text-dim">$</span> my timeline
+          <span className="text-dim">$</span> my ai coding timeline
         </h2>
 
         <div className="timeline-layout">
@@ -111,7 +112,7 @@ export const TimelineSlide: SlideDefinition = {
                 <img
                   src={currentItem.image}
                   alt={currentItem.text}
-                  className="timeline-panel__image"
+                  className={`timeline-panel__image ${currentItem.imageClassName ?? ''}`}
                   loading="lazy"
                 />
               )}
