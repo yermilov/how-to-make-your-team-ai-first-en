@@ -8,10 +8,10 @@ const CURVE_STYLES = `
 `;
 
 // Bell curve: normal distribution points across [0, W]
-// peak at mu=35% of W, sigma=22% of W
+// peak at mu=75% of W (majority section), sigma=16% of W
 function buildCurvePoints(W: number, H: number, padTop: number, padBot: number): string {
-  const mu = W * 0.35;
-  const sigma = W * 0.22;
+  const mu = W * 0.75;
+  const sigma = W * 0.16;
   const availH = H - padTop - padBot;
   const pts: [number, number][] = [];
   const steps = 200;
@@ -36,8 +36,8 @@ function AIInnovatorCurveContent() {
 
   const path = buildCurvePoints(W, H, padTop, padBot);
   // Curve outline only (open path, no fill)
-  const mu = W * 0.35;
-  const sigma = W * 0.22;
+  const mu = W * 0.75;
+  const sigma = W * 0.16;
   const outlinePts: [number, number][] = [];
   for (let i = 0; i <= 200; i++) {
     const x = (i / 200) * W;
@@ -58,7 +58,7 @@ function AIInnovatorCurveContent() {
     { x1: 0,   x2: b1, color: '#f0883e', labelColor: '#f0883e', dimColor: 'rgba(240,136,62,0.55)' },
     { x1: b1,  x2: b2, color: '#7ee787', labelColor: '#7ee787', dimColor: 'rgba(126,231,135,0.55)' },
     { x1: b2,  x2: b3, color: '#79c0ff', labelColor: '#79c0ff', dimColor: 'rgba(121,192,255,0.55)' },
-    { x1: b3,  x2: W,  color: '#d2a8ff', labelColor: 'rgba(210,168,255,0.7)', dimColor: 'rgba(210,168,255,0.4)' },
+    { x1: b3,  x2: W,  color: '#d2a8ff', labelColor: '#d2a8ff', dimColor: 'rgba(210,168,255,0.55)' },
   ];
 
   // Bullet items below the curve per section
@@ -78,7 +78,7 @@ function AIInnovatorCurveContent() {
     },
     {
       section: 3,
-      items: ['chat with chatgpt', 'to copy paste code'],
+      items: ['generate code'],
     },
   ];
 
@@ -87,7 +87,7 @@ function AIInnovatorCurveContent() {
     { section: 0, text: 'anthropic', text2: 'internally' },
     { section: 1, text: 'ai-first', text2: 'engineers/teams' },
     { section: 2, text: 'anthropic', text2: 'publicly' },
-    { section: 3, text: '(laggards)', text2: '' },
+    { section: 3, text: 'majority', text2: '' },
   ];
 
   const sectionCx = (s: { x1: number; x2: number }) => ((s.x1 + s.x2) / 2).toFixed(1);
@@ -174,7 +174,6 @@ function AIInnovatorCurveContent() {
         {labels.map((lbl, i) => {
           const s = sections[i];
           const cx = parseFloat(sectionCx(s));
-          const isLaggard = i === 3;
           return (
             <g key={i}>
               <text
@@ -182,11 +181,9 @@ function AIInnovatorCurveContent() {
                 y={padTop - 32}
                 textAnchor="middle"
                 fill={s.labelColor}
-                fontSize={isLaggard ? 19 : 20}
+                fontSize={20}
                 fontFamily="JetBrains Mono, monospace"
                 fontWeight="700"
-                fontStyle={isLaggard ? 'italic' : 'normal'}
-                opacity={isLaggard ? 0.75 : 1}
               >
                 {lbl.text}
               </text>
@@ -196,11 +193,10 @@ function AIInnovatorCurveContent() {
                   y={padTop - 10}
                   textAnchor="middle"
                   fill={s.labelColor}
-                  fontSize={isLaggard ? 18 : 19}
+                  fontSize={19}
                   fontFamily="JetBrains Mono, monospace"
                   fontWeight="600"
-                  fontStyle={isLaggard ? 'italic' : 'normal'}
-                  opacity={isLaggard ? 0.7 : 0.9}
+                  opacity={0.9}
                 >
                   {lbl.text2}
                 </text>
