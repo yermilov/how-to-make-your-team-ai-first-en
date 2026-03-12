@@ -1,5 +1,5 @@
 import { SlideDefinition } from '../types/slides';
-import { SlideItem, SectionHeader, Emphasis } from '../components/SlideElements';
+import { SlideItem, Emphasis } from '../components/SlideElements';
 
 export const ChallengeAssumptionsSlide: SlideDefinition = {
   id: 'challenge-assumptions',
@@ -19,69 +19,55 @@ export const ChallengeAssumptionsSlide: SlideDefinition = {
           margin: '0 auto',
         }}
       >
-        {/* decisions — always visible */}
-        <SectionHeader color="green" size="dense">decisions</SectionHeader>
-        <SlideItem size="dense" delay={0.06}>
+        <SlideItem delay={0.06}>
           if we deliver 2×–10× faster, will we be able to <Emphasis color="orange">make decisions</Emphasis> as fast?
         </SlideItem>
-        <SlideItem size="dense" delay={0.14}>
-          do we need weeks writing design docs if we can build <Emphasis color="green">prototypes faster</Emphasis> than we can write the document?
-        </SlideItem>
-        <SlideItem size="dense" delay={0.22}>
-          do we need to <Emphasis color="orange">plan in quarters</Emphasis> if we can ship a feature two weeks after inception and get user feedback one month after?
-        </SlideItem>
 
-        {/* infrastructure — revealStage >= 1 */}
         {revealStage >= 1 && (
-          <>
-            <SectionHeader color="purple" size="dense">infrastructure</SectionHeader>
-            <SlideItem size="dense">
-              will agents thrive in <Emphasis color="green">centralised infrastructure</Emphasis> or "you build it you own it"?
-            </SlideItem>
-            <SlideItem size="dense">
-              have we investigated which <Emphasis color="orange">infrastructure primitives</Emphasis> are more convenient for AI coding agents?
-            </SlideItem>
-            <SlideItem size="dense">
-              what are the highest-leverage points to improve <Emphasis color="green">AgentsX</Emphasis>?
-            </SlideItem>
-          </>
+          <SlideItem delay={0}>
+            do we need weeks writing design docs if we can build <Emphasis color="green">prototypes faster</Emphasis> than we can write the document?
+          </SlideItem>
         )}
 
-        {/* tradeoffs — revealStage >= 2 */}
         {revealStage >= 2 && (
-          <>
-            <SectionHeader color="blue" size="dense">tradeoffs</SectionHeader>
-            <SlideItem size="dense">
-              can we trade some <Emphasis color="orange">uptime standards</Emphasis> for development velocity?
-            </SlideItem>
-            <SlideItem size="dense">
-              can we relax <Emphasis color="green">rigorous code review</Emphasis> standards to allow AI-assisted reviews?
-            </SlideItem>
-            <SlideItem size="dense">
-              Anthropic does automated <Emphasis color="orange">security reviews</Emphasis> with Claude Code — can we?
-            </SlideItem>
-          </>
+          <SlideItem delay={0}>
+            do we need to <Emphasis color="orange">plan in quarters</Emphasis> if we can ship a feature two weeks after inception and get user feedback one month after?
+          </SlideItem>
         )}
 
-        {/* practices — revealStage >= 3 */}
         {revealStage >= 3 && (
-          <>
-            <SectionHeader color="green" size="dense">practices</SectionHeader>
-            <SlideItem size="dense">
-              should we evaluate <Emphasis color="orange">AI-coding skills</Emphasis> in interviews?
-            </SlideItem>
-            <SlideItem size="dense">
-              what <Emphasis color="green">architectural paradigms</Emphasis> help agents avoid sloppy generated code?
-            </SlideItem>
-            <SlideItem size="dense">
-              what discussions are <Emphasis color="orange">no longer meaningful</Emphasis> when code generation is increasingly cheap — do we need architecture if code can be fully regenerated weekly?
-            </SlideItem>
-          </>
+          <SlideItem delay={0}>
+            can we trade some <Emphasis color="orange">uptime standards</Emphasis> for development velocity?
+          </SlideItem>
+        )}
+
+        {revealStage >= 4 && (
+          <SlideItem delay={0}>
+            can we relax <Emphasis color="green">rigorous code review</Emphasis> standards to allow AI-assisted code reviews?
+          </SlideItem>
+        )}
+
+        {revealStage >= 5 && (
+          <SlideItem delay={0}>
+            should we evaluate <Emphasis color="orange">AI-coding skills</Emphasis> in interviews?
+          </SlideItem>
+        )}
+
+        {revealStage >= 6 && (
+          <SlideItem delay={0}>
+            what <Emphasis color="green">architectural paradigms</Emphasis> help agents avoid sloppy generated code?
+          </SlideItem>
+        )}
+
+        {revealStage >= 7 && (
+          <SlideItem delay={0}>
+            what discussions are <Emphasis color="orange">no longer meaningful</Emphasis> when code generation is increasingly cheap — do we need architecture if code can be fully regenerated weekly?
+          </SlideItem>
         )}
       </div>
     </>
   ),
-  maxRevealStages: 4,
+  maxRevealStages: 8,
   notes:
     "These aren't rhetorical. Each question is a team conversation waiting to happen. Pick the two that would change the most for your org and start there.",
 };
