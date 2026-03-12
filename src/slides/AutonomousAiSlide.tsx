@@ -1,9 +1,10 @@
-import { SlideDefinition } from '../types/slides';
+import { SlideDefinition, SlideContentProps } from '../types/slides';
 import { SlideItem, Emphasis } from '../components/SlideElements';
 
 export const AutonomousAiSlide: SlideDefinition = {
   id: 'autonomous-ai',
-  content: (
+  maxRevealStages: 5,
+  content: ({ revealStage }: SlideContentProps) => (
     <>
       <h2 style={{ marginBottom: '2rem' }}>
         <span className="text-dim">$</span>{' '}
@@ -23,25 +24,29 @@ export const AutonomousAiSlide: SlideDefinition = {
           every org decision should have an <Emphasis color="green">agent perspective</Emphasis> — optimize for what agents can do best; remove friction that exists only for historical reasons
         </SlideItem>
 
-        <SlideItem delay={0.14}>
-          agents are better aligned with <Emphasis color="orange">monorepo</Emphasis> approaches — for agents, switching between GitHub and GitLab MCP servers is trivial; for humans, it is mentally exhausting
-        </SlideItem>
+        {revealStage >= 1 && (
+          <SlideItem delay={0}>
+            Anthropic chose TypeScript/React/Ink/Bun for Claude Code partly because <Emphasis color="orange">the model writes it best</Emphasis> — tool choices and AI capabilities should co-evolve
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.22}>
-          investigate which <Emphasis color="green">infrastructure primitives</Emphasis> agents can navigate without human help — self-setup dev envs, ephemeral environments, test analysis with flakiness history
-        </SlideItem>
+        {revealStage >= 2 && (
+          <SlideItem delay={0}>
+            investigate which <Emphasis color="green">infrastructure primitives</Emphasis> agents can navigate without human help — self-setup dev envs, ephemeral environments, test analysis with flakiness history
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.30}>
-          Anthropic chose TypeScript/React/Ink/Bun for Claude Code partly because <Emphasis color="orange">the model writes it best</Emphasis> — tool choices and AI capabilities should co-evolve
-        </SlideItem>
+        {revealStage >= 3 && (
+          <SlideItem delay={0}>
+            <Emphasis color="green">legacy codebases</Emphasis> are the biggest drag — it is often unrealistic to adapt massive legacy repositories to AI-first principles in a reasonable timeframe
+          </SlideItem>
+        )}
 
-        <SlideItem delay={0.36}>
-          some human processes will need to change: <Emphasis color="green">design docs written over weeks</Emphasis> become obsolete when we can prototype faster than we can write; quarterly cycles compress
-        </SlideItem>
-
-        <SlideItem delay={0.42}>
-          some current human workflows may become <Emphasis color="orange">impossible or discouraged</Emphasis> — that is real friction, but agent-native decisions ultimately raise the ceiling for humans and agents alike
-        </SlideItem>
+        {revealStage >= 4 && (
+          <SlideItem delay={0}>
+            greenfield projects should be <Emphasis color="orange">AI-first from day one</Emphasis> — they give the highest velocity returns and prove what is possible at scale
+          </SlideItem>
+        )}
       </div>
     </>
   ),
