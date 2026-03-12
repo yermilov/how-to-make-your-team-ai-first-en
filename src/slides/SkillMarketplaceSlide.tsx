@@ -18,7 +18,7 @@ export const SkillMarketplaceSlide: SlideDefinition = {
       <div style={{ display: 'flex', flex: 1, gap: '2rem', alignItems: 'flex-start', minHeight: 0 }}>
 
         {/* Left column — bullets swap on reveal */}
-        <div style={{ flex: '0 0 45%', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+        <div key={revealStage} style={{ flex: '0 0 45%', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
           {revealStage === 0 ? (
             <>
               <SlideItem delay={0.05}>
@@ -35,19 +35,19 @@ export const SkillMarketplaceSlide: SlideDefinition = {
             </>
           ) : (
             <>
-              <SlideItem delay={0}>
+              <SlideItem delay={0} reveal>
                 later Anthropic introduced <Emphasis color="green">marketplaces</Emphasis> which basically works exactly like that but natively
               </SlideItem>
 
-              <SlideItem delay={0.1}>
+              <SlideItem delay={0.12} reveal>
                 create ONE central internal <Emphasis color="orange">marketplace</Emphasis> for skills inside your organization
               </SlideItem>
 
-              <SlideItem delay={0.2}>
+              <SlideItem delay={0.24} reveal>
                 use plugins for <Emphasis color="orange">namespacing</Emphasis> — every user can select which plugins to install
               </SlideItem>
 
-              <SlideItem delay={0.3}>
+              <SlideItem delay={0.36} reveal>
                 use <Emphasis color="green">Claude Enterprise</Emphasis> controls to enforce marketplace and certain plugins on all accounts
               </SlideItem>
             </>

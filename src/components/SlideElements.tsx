@@ -37,10 +37,12 @@ export function SlideItem({
   children,
   size = 'normal',
   delay,
+  reveal = false,
 }: {
   children: React.ReactNode;
   size?: 'normal' | 'compact' | 'dense';
   delay?: number;
+  reveal?: boolean;
 }) {
   const sizeClass =
     size === 'normal' ? 'slide-item' : `slide-item slide-item--${size}`;
@@ -48,7 +50,7 @@ export function SlideItem({
     delay !== undefined
       ? {
           opacity: 0,
-          animation: 'slideItemFadeIn 0.35s ease-out forwards',
+          animation: `${reveal ? 'slideItemReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1)' : 'slideItemFadeIn 0.35s ease-out'} forwards`,
           animationDelay: `${delay}s`,
         }
       : {};

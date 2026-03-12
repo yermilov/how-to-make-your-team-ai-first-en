@@ -752,6 +752,21 @@
   }
 }
 
+@keyframes slideItemReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
   :root {
