@@ -71,9 +71,6 @@ const MATRIX_STYLES = `
 // Katakana + digits + symbols for Matrix-style rain
 const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン01011100101110100111';
 
-function randChar() {
-  return CHARS[Math.floor(Math.random() * CHARS.length)];
-}
 
 interface RainColumn {
   left: number;      // percent
